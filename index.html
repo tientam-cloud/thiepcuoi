@@ -1,571 +1,1263 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thiệp Cưới – Tâm & Tiến</title>
-  <meta name="description" content="Thiệp cưới online – Tâm & Tiến" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#fff9fb; --text:#2a2a2a; --muted:#6b7280; --primary:#e86c8b; --primary-deep:#cc3f68; --accent:#7bb5b3; --card:#ffffff; --shadow:0 10px 30px rgba(0,0,0,.08); --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;scroll-behavior:smooth;background:var(--bg);color:var(--text);font-family:"Quicksand", Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial} 
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thiệp Cưới – Tâm & Tiến</title>
+    <meta name="description" content="Thiệp cưới online – Tâm & Tiến" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Quicksand:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fff9fb;
+            --text: #2a2a2a;
+            --muted: #6b7280;
+            --primary: #e86c8b;
+            --primary-deep: #cc3f68;
+            --accent: #7bb5b3;
+            --card: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            --radius: 18px;
+        }
 
-    /* ---------- Header / Hero (keep layout, add full-screen + Ken Burns) ---------- */
-    .hero{position:relative;height:100svh;min-height:100svh;display:grid;place-items:center;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;transform-origin:center;filter:brightness(.6);animation:kenburns 18s ease-in-out infinite alternate}
-    @keyframes kenburns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.12) translate(2%,-2%)}}
+        * {
+            box-sizing: border-box
+        }
 
-    .wreath{position:absolute;top:8%;left:50%;transform:translateX(-50%);width:min(72vmin,540px);opacity:.9;filter:drop-shadow(0 10px 20px rgba(0,0,0,.25))}
-    .wreath svg{width:100%;height:auto}
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Quicksand", Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial
+        }
 
-    .hero-card{position:relative;backdrop-filter: blur(8px);background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);box-shadow:var(--shadow);padding:28px 26px;border-radius:var(--radius);text-align:center;max-width:760px;width:92%;animation:fadeInUp .9s ease both}
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-    .couple{font-family:"Great Vibes", cursive; font-size: clamp(40px,7vw,92px); line-height:1; color:#fff; text-shadow:0 6px 18px rgba(0,0,0,.25)}
-    .date{font-family:"Playfair Display",serif;letter-spacing:.15em;text-transform:uppercase;margin-top:6px;color:#fff;opacity:.95}
-    .hero-cta{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 18px;font-weight:600;border:1px solid transparent;box-shadow:var(--shadow);cursor:pointer;transition:.25s ease}
-    .btn-primary{background:var(--primary);color:#fff}
-    .btn-primary:hover{background:var(--primary-deep);transform:translateY(-2px)}
-    .btn-ghost{background:rgba(255,255,255,.9);border-color:#eee}
-    .btn-ghost:hover{transform:translateY(-2px)}
+        img {
+            max-width: 100%;
+            display: block
+        }
 
-    .down{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#fff;opacity:.9;display:grid;place-items:center}
-    .down svg{animation: bounce 1.6s infinite}
-    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+        a {
+            color: inherit;
+            text-decoration: none
+        }
 
-    /* ---------- Sections (layout kept) ---------- */
-    section{padding:70px 20px}
-    .container{max-width:1100px;margin:0 auto}
-    .section-title{font-family:"Playfair Display",serif;font-size:clamp(22px,3.2vw,36px);text-align:center;margin:0 0 14px}
-    .section-sub{color:var(--muted);text-align:center;margin:0 0 36px}
+        /* ---------- Header / Hero (keep layout, add full-screen + Ken Burns) ---------- */
+        .hero {
+            position: relative;
+            height: 100svh;
+            min-height: 100svh;
+            display: grid;
+            place-items: center;
+            overflow: hidden
+        }
 
-    /* Countdown */
-    .countdown{display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));gap:14px;max-width:720px;margin:28px auto 0}
-    .time{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px;text-align:center;transition:transform .25s ease, box-shadow .25s ease}
-    .time:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(0,0,0,.12)}
-    .time .num{font-size:clamp(28px,6vw,44px);font-weight:800}
-    .time .lbl{color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            transform-origin: center;
+            filter: brightness(.6);
+            animation: kenburns 18s ease-in-out infinite alternate
+        }
 
-    /* Story */
-    .story{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
-    .story .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
-    .pill{display:inline-block;background:#fdf2f6;color:var(--primary-deep);padding:6px 12px;border-radius:999px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:12px;margin-bottom:8px}
+        @keyframes kenburns {
+            0% {
+                transform: scale(1) translate(0, 0)
+            }
 
-    /* Events */
-    .events{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-    .event{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .25s ease, box-shadow .25s ease}
-    .event:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(0,0,0,.12)}
-    .event .cover{height:170px;background-size:cover;background-position:center;filter:saturate(1.02)}
-    .event .body{padding:20px}
-    .event h3{margin:0 0 6px;font-family:"Playfair Display",serif}
-    .event .meta{color:var(--muted)}
+            100% {
+                transform: scale(1.12) translate(2%, -2%)
+            }
+        }
 
-    /* Gallery */
-    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
-    .g-item{grid-column: span 4; border-radius:16px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;position:relative}
-    .g-item img{transition:transform .5s ease}
-    .g-item:hover img{transform:scale(1.05)}
-    .g-item.tall{grid-row: span 2}
+        .wreath {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(72vmin, 540px);
+            opacity: .9;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .25))
+        }
 
-    /* RSVP */
-    .rsvp{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
-    .field{display:grid;gap:6px;margin-bottom:14px}
-    .field input,.field textarea,.field select{border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px;font:inherit;background:#fff}
-    .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid rgba(232,108,139,.25);border-color:#f2a1b6}
+        .wreath svg {
+            width: 100%;
+            height: auto
+        }
 
-    /* Footer */
-    footer{padding:40px 20px;background:#111;color:#eee;text-align:center;position:relative}
-    footer .credits{opacity:.8}
+        .hero-card {
+            position: relative;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, .22);
+            border: 1px solid rgba(255, 255, 255, .35);
+            box-shadow: var(--shadow);
+            padding: 28px 26px;
+            border-radius: var(--radius);
+            text-align: center;
+            max-width: 760px;
+            width: 92%;
+            animation: fadeInUp .9s ease both
+        }
 
-    /* Parallax band */
-    .band{height:280px;background:url('https://images.unsplash.com/photo-1495385794356-15371f348c31?q=80&w=1600&auto=format&fit=crop') center/cover fixed;border-radius:24px;margin:12px 0;box-shadow:var(--shadow)}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px)
+            }
 
-    /* Reveal on scroll */
-    .reveal{opacity:0;transform:translateY(18px);transition:all .7s ease}
-    .revealed{opacity:1;transform:none}
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
 
-    /* Lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
-    .lightbox.open{display:flex}
-    .lightbox img{max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-    .lightbox .close{position:absolute;top:20px;right:20px;background:#fff;border:none;border-radius:999px;padding:10px 12px;font-weight:700;cursor:pointer}
+        .couple {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(40px, 7vw, 92px);
+            line-height: 1;
+            color: #fff;
+            text-shadow: 0 6px 18px rgba(0, 0, 0, .25)
+        }
 
-    /* Back to top */
-    .backtop{position:fixed;right:18px;bottom:18px;padding:12px 14px;border-radius:999px;background:var(--primary);color:#fff;border:none;box-shadow:var(--shadow);cursor:pointer;opacity:0;transform:translateY(20px);transition:.25s;z-index:40}
-    .backtop.show{opacity:1;transform:none}
+        .date {
+            font-family: "Playfair Display", serif;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            margin-top: 6px;
+            color: #fff;
+            opacity: .95
+        }
 
-    /* Petals */
-    .petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
-    .petal{position:absolute;top:-10vh;width:18px;height:14px;background:radial-gradient(circle at 30% 30%, #fff 0 30%, #f8b3c6 31% 100%);border-radius:60% 60% 60% 60%/70% 70% 40% 40%;opacity:.85;filter:blur(.2px);animation:fall var(--dur,12s) linear infinite, sway 5s ease-in-out infinite;transform-origin:50% 0}
-    @keyframes fall{to{transform:translate3d(var(--dx,0),110vh,0) rotate(var(--rot,180deg))}}
-    @keyframes sway{0%,100%{margin-left:0}50%{margin-left:12px}}
+        .hero-cta {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
 
-    /* Parallax attribute */
-    [data-parallax]{will-change:transform}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            padding: 12px 18px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: .25s ease
+        }
 
-    /* Responsive */
-    @media (max-width: 980px){
-      .story{grid-template-columns:1fr}
-      .events{grid-template-columns:1fr}
-      .gallery .g-item{grid-column: span 6}
-      .rsvp{grid-template-columns:1fr}
-      .band{height:220px}
-    }
-    @media (max-width: 620px){
-      .countdown{grid-template-columns:repeat(2,1fr)}
-      .gallery .g-item{grid-column: span 12}
-    }
-  /* Gift / QR */
-.gift{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.bank-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
-.b-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.avatar{width:44px;height:44px;border-radius:999px;background:#fdf2f6;display:grid;place-items:center;font-size:22px}
-.qr-wrap{display:grid;place-items:center;margin:8px 0 6px}
-.qr{width:100%;max-width:220px;border-radius:12px;box-shadow:var(--shadow)}
-.b-info{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
-.copy-btn{margin-left:8px;padding:6px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;font-weight:600}
-.copy-btn:hover{transform:translateY(-1px)}
-.gift-note{margin-top:22px;text-align:center}
-@media (max-width:980px){.gift{grid-template-columns:1fr}}
-/* Floating Music Toggle */
-.music-toggle{position:fixed;left:18px;bottom:22px;width:56px;height:56px;border-radius:999px;background:var(--primary);color:#fff;border:none;display:grid;place-items:center;box-shadow:var(--shadow);cursor:pointer;z-index:60;transition:transform .2s ease, background .2s ease}
-.music-toggle:hover{transform:translateY(-2px)}
-.music-toggle svg{width:24px;height:24px}
-.music-toggle .ic-on{display:none}
-.music-toggle.on .ic-on{display:block}
-.music-toggle.on .ic-off{display:none}
-.music-toggle.on{background:var(--primary-deep);animation:pulse 1.8s ease-out infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,108,139,.45)}70%{box-shadow:0 0 0 16px rgba(232,108,139,0)}100%{box-shadow:0 0 0 0 rgba(232,108,139,0)}}
-@media (max-width:620px){.music-toggle{width:52px;height:52px;left:14px;bottom:18px}}
-@media (max-width: 768px){ /* fix mobile overlay issue with fixed backgrounds */ .band{background-attachment:scroll !important} }
-.music-toast{position:fixed;left:86px;bottom:32px;background:rgba(0,0,0,.75);color:#fff;padding:8px 12px;border-radius:999px;font-weight:600;box-shadow:var(--shadow);opacity:0;transform:translateY(6px);transition:.3s;z-index:60}
-.music-toast.show{opacity:1;transform:none}
-@media (max-width:620px){.music-toast{left:76px;bottom:26px;font-size:12px}}
-/* Typography & hero scaling tweaks */
-:root{ --hero-max:1000px }
-.hero-card{ max-width:var(--hero-max); padding:40px 36px; border-radius:24px }
-.couple{ font-size:clamp(56px,9.5vw,128px); letter-spacing:.5px }
-.date{ font-size:clamp(14px,1.6vw,18px); margin-top:10px }
-.hero-cta .btn{ padding:14px 22px; font-size:16px }
-.section-title{ font-family:"Cormorant Garamond", serif; font-size:clamp(28px,4vw,46px); letter-spacing:.02em }
-</style>
+        .btn-primary {
+            background: var(--primary);
+            color: #fff
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-deep);
+            transform: translateY(-2px)
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, .9);
+            border-color: #eee
+        }
+
+        .btn-ghost:hover {
+            transform: translateY(-2px)
+        }
+
+        .down {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            opacity: .9;
+            display: grid;
+            place-items: center
+        }
+
+        .down svg {
+            animation: bounce 1.6s infinite
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(6px)
+            }
+        }
+
+        /* ---------- Sections (layout kept) ---------- */
+        section {
+            padding: 70px 20px
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(22px, 3.2vw, 36px);
+            text-align: center;
+            margin: 0 0 14px
+        }
+
+        .section-sub {
+            color: var(--muted);
+            text-align: center;
+            margin: 0 0 36px
+        }
+
+        /* Countdown */
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(110px, 1fr));
+            gap: 14px;
+            max-width: 720px;
+            margin: 28px auto 0
+        }
+
+        .time {
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 18px;
+            text-align: center;
+            transition: transform .25s ease, box-shadow .25s ease
+        }
+
+        .time:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, .12)
+        }
+
+        .time .num {
+            font-size: clamp(28px, 6vw, 44px);
+            font-weight: 800
+        }
+
+        .time .lbl {
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: 12px
+        }
+
+        /* Story */
+        .story {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 24px;
+            align-items: center
+        }
+
+        .story .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 24px
+        }
+
+        .pill {
+            display: inline-block;
+            background: #fdf2f6;
+            color: var(--primary-deep);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 8px
+        }
+
+        /* Events */
+        .events {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px
+        }
+
+        .event {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform .25s ease, box-shadow .25s ease
+        }
+
+        .event:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, .12)
+        }
+
+        .event .cover {
+            height: 170px;
+            background-size: cover;
+            background-position: center;
+            filter: saturate(1.02)
+        }
+
+        .event .body {
+            padding: 20px
+        }
+
+        .event h3 {
+            margin: 0 0 6px;
+            font-family: "Playfair Display", serif
+        }
+
+        .event .meta {
+            color: var(--muted)
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 10px
+        }
+
+        .g-item {
+            grid-column: span 4;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            position: relative
+        }
+
+        .g-item img {
+            transition: transform .5s ease
+        }
+
+        .g-item:hover img {
+            transform: scale(1.05)
+        }
+
+        .g-item.tall {
+            grid-row: span 2
+        }
+
+        /* RSVP */
+        .rsvp {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 24px
+        }
+
+        .field {
+            display: grid;
+            gap: 6px;
+            margin-bottom: 14px
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 12px 14px;
+            font: inherit;
+            background: #fff
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            outline: 2px solid rgba(232, 108, 139, .25);
+            border-color: #f2a1b6
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            background: #111;
+            color: #eee;
+            text-align: center;
+            position: relative
+        }
+
+        footer .credits {
+            opacity: .8
+        }
+
+        /* Parallax band */
+        .band {
+            height: 280px;
+            background: url('https://images.unsplash.com/photo-1495385794356-15371f348c31?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
+            border-radius: 24px;
+            margin: 12px 0;
+            box-shadow: var(--shadow)
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: all .7s ease
+        }
+
+        .revealed {
+            opacity: 1;
+            transform: none
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 50
+        }
+
+        .lightbox.open {
+            display: flex
+        }
+
+        .lightbox img {
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .4)
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 10px 12px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        /* Back to top */
+        .backtop {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            padding: 12px 14px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .25s;
+            z-index: 40
+        }
+
+        .backtop.show {
+            opacity: 1;
+            transform: none
+        }
+
+        /* Petals */
+        .petals {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 20
+        }
+
+        .petal {
+            position: absolute;
+            top: -10vh;
+            width: 18px;
+            height: 14px;
+            background: radial-gradient(circle at 30% 30%, #fff 0 30%, #f8b3c6 31% 100%);
+            border-radius: 60% 60% 60% 60%/70% 70% 40% 40%;
+            opacity: .85;
+            filter: blur(.2px);
+            animation: fall var(--dur, 12s) linear infinite, sway 5s ease-in-out infinite;
+            transform-origin: 50% 0
+        }
+
+        @keyframes fall {
+            to {
+                transform: translate3d(var(--dx, 0), 110vh, 0) rotate(var(--rot, 180deg))
+            }
+        }
+
+        @keyframes sway {
+
+            0%,
+            100% {
+                margin-left: 0
+            }
+
+            50% {
+                margin-left: 12px
+            }
+        }
+
+        /* Parallax attribute */
+        [data-parallax] {
+            will-change: transform
+        }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .story {
+                grid-template-columns: 1fr
+            }
+
+            .events {
+                grid-template-columns: 1fr
+            }
+
+            .gallery .g-item {
+                grid-column: span 6
+            }
+
+            .rsvp {
+                grid-template-columns: 1fr
+            }
+
+            .band {
+                height: 220px
+            }
+        }
+
+        @media (max-width: 620px) {
+            .countdown {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .gallery .g-item {
+                grid-column: span 12
+            }
+        }
+
+        /* Gift / QR */
+        .gift {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px
+        }
+
+        .bank-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px
+        }
+
+        .b-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            background: #fdf2f6;
+            display: grid;
+            place-items: center;
+            font-size: 22px
+        }
+
+        .qr-wrap {
+            display: grid;
+            place-items: center;
+            margin: 8px 0 6px
+        }
+
+        .qr {
+            width: 100%;
+            max-width: 220px;
+            border-radius: 12px;
+            box-shadow: var(--shadow)
+        }
+
+        .b-info {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: grid;
+            gap: 8px
+        }
+
+        .copy-btn {
+            margin-left: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-1px)
+        }
+
+        .gift-note {
+            margin-top: 22px;
+            text-align: center
+        }
+
+        @media (max-width:980px) {
+            .gift {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Floating Music Toggle */
+        .music-toggle {
+            position: fixed;
+            left: 18px;
+            bottom: 22px;
+            width: 56px;
+            height: 56px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            display: grid;
+            place-items: center;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            z-index: 60;
+            transition: transform .2s ease, background .2s ease
+        }
+
+        .music-toggle:hover {
+            transform: translateY(-2px)
+        }
+
+        .music-toggle svg {
+            width: 24px;
+            height: 24px
+        }
+
+        .music-toggle .ic-on {
+            display: none
+        }
+
+        .music-toggle.on .ic-on {
+            display: block
+        }
+
+        .music-toggle.on .ic-off {
+            display: none
+        }
+
+        .music-toggle.on {
+            background: var(--primary-deep);
+            animation: pulse 1.8s ease-out infinite
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(232, 108, 139, .45)
+            }
+
+            70% {
+                box-shadow: 0 0 0 16px rgba(232, 108, 139, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(232, 108, 139, 0)
+            }
+        }
+
+        @media (max-width:620px) {
+            .music-toggle {
+                width: 52px;
+                height: 52px;
+                left: 14px;
+                bottom: 18px
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* fix mobile overlay issue with fixed backgrounds */
+            .band {
+                background-attachment: scroll !important
+            }
+        }
+
+        .music-toast {
+            position: fixed;
+            left: 86px;
+            bottom: 32px;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(6px);
+            transition: .3s;
+            z-index: 60
+        }
+
+        .music-toast.show {
+            opacity: 1;
+            transform: none
+        }
+
+        @media (max-width:620px) {
+            .music-toast {
+                left: 76px;
+                bottom: 26px;
+                font-size: 12px
+            }
+        }
+
+        /* Typography & hero scaling tweaks */
+        :root {
+            --hero-max: 1000px
+        }
+
+        .hero-card {
+            max-width: var(--hero-max);
+            padding: 40px 36px;
+            border-radius: 24px
+        }
+
+        .couple {
+            font-size: clamp(56px, 9.5vw, 128px);
+            letter-spacing: .5px
+        }
+
+        .date {
+            font-size: clamp(14px, 1.6vw, 18px);
+            margin-top: 10px
+        }
+
+        .hero-cta .btn {
+            padding: 14px 22px;
+            font-size: 16px
+        }
+
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(28px, 4vw, 46px);
+            letter-spacing: .02em
+        }
+    </style>
 </head>
+
 <body>
-  <!-- Music (optional) -->
-  <audio id="music" src="" preload="none" loop></audio>
+    <!-- Music (optional) -->
+    <audio id="music" src="" preload="none" loop></audio>
 
-  <header class="hero" id="top">
-    <!-- Floral wreath (SVG) with parallax -->
-    <div class="wreath" aria-hidden="true" data-parallax data-speed="0.15">
-      <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ffd1dc"/>
-            <stop offset="100%" stop-color="#f39cb3"/>
-          </linearGradient>
-        </defs>
-        <g opacity=".9">
-          <circle cx="400" cy="400" r="300" stroke="#ffffff" stroke-opacity=".45" stroke-width="2" stroke-dasharray="6 10"/>
-          <g>
-            <path d="M400 110c18 40 18 80 0 120c-18-40-18-80 0-120z" fill="url(#petal)"/>
-            <path d="M690 400c-40 18-80 18-120 0c40-18 80-18 120 0z" fill="url(#petal)"/>
-            <path d="M400 690c-18-40-18-80 0-120c18 40 18 80 0 120z" fill="url(#petal)"/>
-            <path d="M110 400c40-18 80-18 120 0c-40 18-80 18-120 0z" fill="url(#petal)"/>
-          </g>
-        </g>
-      </svg>
-    </div>
-
-    <div class="hero-card" data-parallax data-speed="0.08">
-      <div class="couple">Tâm & Tiến</div>
-      <div class="date">01 • 10 • 2025</div>
-      <div class="hero-cta">
-        <a href="#countdown" class="btn btn-primary">Xem ngày cưới</a>
-        <a href="#gallery" class="btn btn-ghost">Bộ sưu tập ảnh</a>
-        
-      </div>
-    </div>
-<a class="down" href="#countdown" aria-label="Cuộn xuống">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </a>
-  </header>
-
-  <main>
-    <!-- Countdown (layout kept, only small hover effect) -->
-    <section id="countdown" class="reveal">
-      <div class="container">
-        <h2 class="section-title">Đếm ngược đến ngày cưới</h2>
-        <p class="section-sub">Chúng mình rất mong được đón bạn trong ngày trọng đại ♥</p>
-        <div class="countdown">
-          <div class="time"><div id="dd" class="num">0</div><div class="lbl">Ngày</div></div>
-          <div class="time"><div id="hh" class="num">0</div><div class="lbl">Giờ</div></div>
-          <div class="time"><div id="mm" class="num">0</div><div class="lbl">Phút</div></div>
-          <div class="time"><div id="ss" class="num">0</div><div class="lbl">Giây</div></div>
+    <header class="hero" id="top">
+        <!-- Floral wreath (SVG) with parallax -->
+        <div class="wreath" aria-hidden="true" data-parallax data-speed="0.15">
+            <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#ffd1dc" />
+                        <stop offset="100%" stop-color="#f39cb3" />
+                    </linearGradient>
+                </defs>
+                <g opacity=".9">
+                    <circle cx="400" cy="400" r="300" stroke="#ffffff" stroke-opacity=".45" stroke-width="2"
+                        stroke-dasharray="6 10" />
+                    <g>
+                        <path d="M400 110c18 40 18 80 0 120c-18-40-18-80 0-120z" fill="url(#petal)" />
+                        <path d="M690 400c-40 18-80 18-120 0c40-18 80-18 120 0z" fill="url(#petal)" />
+                        <path d="M400 690c-18-40-18-80 0-120c18 40 18 80 0 120z" fill="url(#petal)" />
+                        <path d="M110 400c40-18 80-18 120 0c-40 18-80 18-120 0z" fill="url(#petal)" />
+                    </g>
+                </g>
+            </svg>
         </div>
-      </div>
-    </section>
 
-    <div class="container">
-      <div class="band reveal" data-parallax data-speed="0.05" aria-hidden="true"></div>
-    </div>
+        <div class="hero-card" data-parallax data-speed="0.08">
+            <div class="couple">Tâm & Tiến</div>
+            <div class="date">01 • 10 • 2025</div>
+            <div class="hero-cta">
+                <a href="#countdown" class="btn btn-primary">Xem ngày cưới</a>
+                <a href="#gallery" class="btn btn-ghost">Bộ sưu tập ảnh</a>
 
-    <!-- Story / About (layout kept) -->
-    <section id="story" class="reveal">
-      <div class="container story">
-        <div class="card">
-          <span class="pill">Chuyện chúng mình</span>
-          <h2 class="section-title" style="text-align:left;margin-top:0">Từ người lạ thành thương</h2>
-          <p>Một buổi chiều năm ấy, chúng mình tình cờ gặp nhau. Từ những cuộc trò chuyện đơn giản đến những chuyến đi dài, chúng mình nhận ra có một <strong>ngôi nhà</strong> trong ánh mắt của nhau. Cảm ơn bạn vì đã là một phần câu chuyện, và chúng mình rất vui nếu bạn có mặt trong ngày đặc biệt này.</p>
-          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-            <a href="#events" class="btn btn-primary">Thông tin lễ cưới</a>
-            <a href="#rsvp" class="btn btn-ghost">Xác nhận tham dự</a>
-          </div>
-        </div>
-        <div data-parallax data-speed="0.03">
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Ảnh cưới" style="border-radius:var(--radius);box-shadow:var(--shadow)">
-        </div>
-      </div>
-    </section>
-
-    <!-- Events (layout kept, hover added) -->
-    <section id="events" class="reveal">
-      <div class="container">
-        <h2 class="section-title">Lịch trình & Địa điểm</h2>
-        <p class="section-sub">Rất hân hạnh được đón tiếp bạn tại buổi lễ của chúng mình</p>
-        <div class="events">
-          <div class="event">
-            <div class="cover" style="background-image:url('https://images.unsplash.com/photo-1521337584187-1e0a9b4bdfd0?q=80&w=1400&auto=format&fit=crop')"></div>
-            <div class="body">
-              <h3>Nhà Gái</h3>
-              <div class="meta">08:30 – 12:00 | 01/10/2025</div>
-              <p>Nhà Văn Hoá Thôn Giáp Long,Thống Nhất,Thường Tín,Hà Nội</p>
-              <a class="btn btn-ghost" target="_blank" href="https://www.google.com/maps/place/Nh%C3%A0+V%C4%83n+Ho%C3%A1+Th%C3%B4n+Gi%C3%A1p+Long,Th%E1%BB%91ng+Nh%E1%BA%A5t,Th%C6%B0%E1%BB%9Dng+T%C3%ADn,H%C3%A0+N%E1%BB%99i/@20.8118458,105.9056879,1054m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3135b70065fde383:0x72cf53a1025d7f89!8m2!3d20.8118408!4d105.9082628!16s%2Fg%2F11vzqc5cr2?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D">Xem bản đồ</a>
             </div>
-          </div>
-          <div class="event">
-            <div class="cover" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop')"></div>
-            <div class="body">
-              <h3>Nhà Trai</h3>
-              <div class="meta">08:30 – 21:30 | 01/10/2025</div>
-              <p>Hướng Dương,Thắng Lợi,Thường Tín,Hà Nội,Việt Nam</p>
-              <a class="btn btn-ghost" target="_blank" href="https://www.google.com/maps/place/%C4%90%C3%ACnh+l%C3%A0ng+H%C6%B0%E1%BB%9Bng+D%C6%B0%C6%A1ng/@20.8307694,105.883514,313m/data=!3m1!1e3!4m15!1m8!3m7!1s0x3135b15a674c9bd5:0x595a5b44b72e847!2zSMaw4bubbmcgRMawxqFuZywgVGjhuq9uZyBM4bujaSwgVGjGsOG7nW5nIFTDrW4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!3b1!8m2!3d20.8326242!4d105.8840789!16s%2Fg%2F1hc3mqkqr!3m5!1s0x3135b15a70e32a9b:0xca70270d06234d8d!8m2!3d20.8309433!4d105.8839129!16s%2Fg%2F11gf60ss08?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D">Xem bản đồ</a>
+        </div>
+        <a class="down" href="#countdown" aria-label="Cuộn xuống">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </a>
+    </header>
+
+    <main>
+        <!-- Countdown (layout kept, only small hover effect) -->
+        <section id="countdown" class="reveal">
+            <div class="container">
+                <h2 class="section-title">Đếm ngược đến ngày cưới</h2>
+                <p class="section-sub">Chúng mình rất mong được đón bạn trong ngày trọng đại ♥</p>
+                <div class="countdown">
+                    <div class="time">
+                        <div id="dd" class="num">0</div>
+                        <div class="lbl">Ngày</div>
+                    </div>
+                    <div class="time">
+                        <div id="hh" class="num">0</div>
+                        <div class="lbl">Giờ</div>
+                    </div>
+                    <div class="time">
+                        <div id="mm" class="num">0</div>
+                        <div class="lbl">Phút</div>
+                    </div>
+                    <div class="time">
+                        <div id="ss" class="num">0</div>
+                        <div class="lbl">Giây</div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <div class="container">
-      <div class="band reveal" data-parallax data-speed="0.04" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1460364157752-926555421a7e?q=80&w=1600&auto=format&fit=crop')"></div>
-    </div>
+        <div class="container">
+            <div class="band reveal" data-parallax data-speed="0.05" aria-hidden="true"></div>
+        </div>
 
-    <!-- Gallery (layout kept) -->
-    <section id="gallery" class="reveal">
-      <div class="container">
-        <h2 class="section-title">Album ảnh cưới</h2>
-        <p class="section-sub">Những khoảnh khắc đáng nhớ</p>
-        <div class="gallery">
-          <a class="g-item" data-src="/thiepcuoi/img/phu/chot/tam tien8152.jpg?q=80&w=1600&auto=format&fit=crop"><img src="/thiepcuoi/img/phu/chot/tam tien8152.jpg" alt=""></a>
-          <a class="g-item tall" data-src="/thiepcuoi/img/ban/tam tien8107.jpg?q=80&w=1600&auto=format&fit=crop"><img src="/thiepcuoi/img/ban/tam tien8107.jpg" alt=""></a>
-          <a class="g-item" data-src="/thiepcuoi/img/ban/tam tien8162.jpg?q=80&w=1600&auto=format&fit=crop"><img src="/thiepcuoi/img/ban/tam tien8162.jpg" alt=""></a>
-          <a class="g-item" data-src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=600&auto=format&fit=crop" alt=""></a>
-          <a class="g-item tall" data-src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop" alt=""></a>
-          <a class="g-item" data-src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt=""></a>
-          <a class="g-item" data-src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=600&auto=format&fit=crop" alt=""></a>
-          <a class="g-item" data-src="https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?q=80&w=1600&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?q=80&w=600&auto=format&fit=crop" alt=""></a>
-        </div>
-      </div>
-    </section>
+        <!-- Story / About (layout kept) -->
+        <section id="story" class="reveal">
+            <div class="container story">
+                <div class="card">
+                    <span class="pill">Chuyện chúng mình</span>
+                    <h2 class="section-title" style="text-align:left;margin-top:0">Từ người lạ thành thương</h2>
+                    <p>Một buổi chiều năm ấy, chúng mình tình cờ gặp nhau. Từ những cuộc trò chuyện đơn giản đến những
+                        chuyến đi
+                        dài, chúng mình nhận ra có một <strong>ngôi nhà</strong> trong ánh mắt của nhau. Cảm ơn bạn vì
+                        đã là một
+                        phần câu chuyện, và chúng mình rất vui nếu bạn có mặt trong ngày đặc biệt này.</p>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                        <a href="#events" class="btn btn-primary">Thông tin lễ cưới</a>
+                        <a href="#rsvp" class="btn btn-ghost">Xác nhận tham dự</a>
+                    </div>
+                </div>
+                <div data-parallax data-speed="0.03">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop"
+                        alt="Ảnh cưới" style="border-radius:var(--radius);box-shadow:var(--shadow)">
+                </div>
+            </div>
+        </section>
 
-    <!-- Gift / QR -->
-<section id="gift" class="reveal">
-  <div class="container">
-    <h2 class="section-title">Góc quà tặng</h2>
-    <p class="section-sub">Lời chúc là món quà quý giá nhất; nếu muốn gửi thêm yêu thương, bạn có thể chuyển khoản qua QR dưới đây. Xin cảm ơn vì đã nghĩ đến chúng mình ♥</p>
-    <div class="gift">
-      <div class="bank-card">
-        <div class="b-head">
-          <div class="avatar">👰</div>
-          <div>
-            <div style="font-weight:700">Cô dâu</div>
-            <div class="meta" style="color:var(--muted)">Tâm Jessica</div>
-          </div>
+        <!-- Events (layout kept, hover added) -->
+        <section id="events" class="reveal">
+            <div class="container">
+                <h2 class="section-title">Lịch trình & Địa điểm</h2>
+                <p class="section-sub">Rất hân hạnh được đón tiếp bạn tại buổi lễ của chúng mình</p>
+                <div class="events">
+                    <div class="event">
+                        <div class="cover"
+                            style="background-image:url('https://images.unsplash.com/photo-1521337584187-1e0a9b4bdfd0?q=80&w=1400&auto=format&fit=crop')">
+                        </div>
+                        <div class="body">
+                            <h3>Nhà Gái</h3>
+                            <div class="meta">08:30 – 12:00 | 01/10/2025</div>
+                            <p>Nhà Văn Hoá Thôn Giáp Long,Thống Nhất,Thường Tín,Hà Nội</p>
+                            <a class="btn btn-ghost" target="_blank"
+                                href="https://www.google.com/maps/place/Nh%C3%A0+V%C4%83n+Ho%C3%A1+Th%C3%B4n+Gi%C3%A1p+Long,Th%E1%BB%91ng+Nh%E1%BA%A5t,Th%C6%B0%E1%BB%9Dng+T%C3%ADn,H%C3%A0+N%E1%BB%99i/@20.8118458,105.9056879,1054m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3135b70065fde383:0x72cf53a1025d7f89!8m2!3d20.8118408!4d105.9082628!16s%2Fg%2F11vzqc5cr2?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D">Xem
+                                bản đồ</a>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="cover"
+                            style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop')">
+                        </div>
+                        <div class="body">
+                            <h3>Nhà Trai</h3>
+                            <div class="meta">08:30 – 21:30 | 01/10/2025</div>
+                            <p>Hướng Dương,Thắng Lợi,Thường Tín,Hà Nội,Việt Nam</p>
+                            <a class="btn btn-ghost" target="_blank"
+                                href="https://www.google.com/maps/place/%C4%90%C3%ACnh+l%C3%A0ng+H%C6%B0%E1%BB%9Bng+D%C6%B0%C6%A1ng/@20.8307694,105.883514,313m/data=!3m1!1e3!4m15!1m8!3m7!1s0x3135b15a674c9bd5:0x595a5b44b72e847!2zSMaw4bubbmcgRMawxqFuZywgVGjhuq9uZyBM4bujaSwgVGjGsOG7nW5nIFTDrW4sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!3b1!8m2!3d20.8326242!4d105.8840789!16s%2Fg%2F1hc3mqkqr!3m5!1s0x3135b15a70e32a9b:0xca70270d06234d8d!8m2!3d20.8309433!4d105.8839129!16s%2Fg%2F11gf60ss08?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D">Xem
+                                bản đồ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="band reveal" data-parallax data-speed="0.04" aria-hidden="true"
+                style="background-image:url('https://images.unsplash.com/photo-1460364157752-926555421a7e?q=80&w=1600&auto=format&fit=crop')">
+            </div>
         </div>
-        <div class="qr-wrap">
-          <a href="#" class="open-lightbox" data-src="/thiepcuoi/img/qr-tam.jpg" aria-label="Xem QR cô dâu">
-            <img class="qr" src="/thiepcuoi/img/qr-tam.jpg" alt="QR chuyển khoản cô dâu">
-          </a>
-        </div>
-        <ul class="b-info">
-          <li><strong>Ngân hàng:</strong> VIBank</li>
-          <li><strong>Chủ TK:</strong> Lương Thị Tâm</li>
-          <li><strong>Số TK:</strong> <span>0123456789</span>
-              <button type="button" class="copy-btn" data-clipboard="0123456789">Copy</button>
-          </li>
-          <!-- <li><strong>Nội dung gợi ý:</strong> <code>Chuc_mung_dam_cuoi_Tam_Tien_[Ten_ban]</code>
+
+        <!-- Gallery (layout kept) -->
+        <section id="gallery" class="reveal">
+            <div class="container">
+                <h2 class="section-title">Album ảnh cưới</h2>
+                <p class="section-sub">Những khoảnh khắc đáng nhớ</p>
+                <div class="gallery">
+                    <a class="g-item"
+                        data-src="/thiepcuoi/img/phu/chot/tam tien8107.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/phu/chot/tam tien8107.jpg" alt=""></a>
+                    <a class="g-item tall"
+                        data-src="/thiepcuoi/img/ban/tam tien8152.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/ban/tam tien8152.jpg" alt=""></a>
+                    <a class="g-item"
+                        data-src="/thiepcuoi/img/ban/tam tien8162.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/ban/tam tien8162.jpg" alt=""></a>
+                    <a class="g-item"
+                        data-src="/thiepcuoi/img/phu/chot/tam tien7871.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/phu/chot/tam tien7871.jpg?q=80&w=600&auto=format&fit=crop"
+                            alt=""></a>
+                    <a class="g-item tall"
+                        data-src="/thiepcuoi/img/phu/chot/tam tien8401.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/phu/chot/tam tien8401.jpg?q=80&w=600&auto=format&fit=crop"
+                            alt=""></a>
+                    <a class="g-item"
+                        data-src="/thiepcuoi/img/phu/chot/tam tien7961.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/phu/chot/tam tien7961.jpg?q=80&w=600&auto=format&fit=crop"
+                            alt=""></a>
+                    <a class="g-item"
+                        data-src="/thiepcuoi/img/phu/tam tien8325.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/phu/tam tien8325.jpg?q=80&w=600&auto=format&fit=crop"
+                            alt=""></a>
+                    <a class="g-item"
+                        data-src="/thiepcuoi/img/phu/tam tien8132.jpg?q=80&w=1600&auto=format&fit=crop"><img
+                            src="/thiepcuoi/img/phu/tam tien8132.jpg?q=80&w=600&auto=format&fit=crop"
+                            alt=""></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift / QR -->
+        <section id="gift" class="reveal">
+            <div class="container">
+                <h2 class="section-title">Góc quà tặng</h2>
+                <p class="section-sub">Lời chúc là món quà quý giá nhất; nếu muốn gửi thêm yêu thương, bạn có thể chuyển
+                    khoản
+                    qua QR dưới đây. Xin cảm ơn vì đã nghĩ đến chúng mình ♥</p>
+                <div class="gift">
+                    <div class="bank-card">
+                        <div class="b-head">
+                            <div class="avatar">👰</div>
+                            <div>
+                                <div style="font-weight:700">Cô dâu</div>
+                                <div class="meta" style="color:var(--muted)">Tâm Jessica</div>
+                            </div>
+                        </div>
+                        <div class="qr-wrap">
+                            <a href="#" class="open-lightbox" data-src="/thiepcuoi/img/qr-tam.jpg"
+                                aria-label="Xem QR cô dâu">
+                                <img class="qr" src="/thiepcuoi/img/qr-tam.jpg" alt="QR chuyển khoản cô dâu">
+                            </a>
+                        </div>
+                        <ul class="b-info">
+                            <li><strong>Ngân hàng:</strong> VIBank</li>
+                            <li><strong>Chủ TK:</strong> Lương Thị Tâm</li>
+                            <li><strong>Số TK:</strong> <span>0123456789</span>
+                                <button type="button" class="copy-btn" data-clipboard="0123456789">Copy</button>
+                            </li>
+                            <!-- <li><strong>Nội dung gợi ý:</strong> <code>Chuc_mung_dam_cuoi_Tam_Tien_[Ten_ban]</code>
               <button type="button" class="copy-btn" data-clipboard="Chuc_mung_dam_cuoi_Tam_Tien_[Ten_ban]">Copy</button>
           </li> -->
-        </ul>
-      </div>
-      <div class="bank-card">
-        <div class="b-head">
-          <div class="avatar">🤵</div>
-          <div>
-            <div style="font-weight:700">Chú rể</div>
-            <div class="meta" style="color:var(--muted)">Đỗ Tiến</div>
-          </div>
-        </div>
-        <div class="qr-wrap">
-          <a href="#" class="open-lightbox" data-src="/thiepcuoi/img/qr-tien.jpg" aria-label="Xem QR chú rể">
-            <img class="qr" src="/thiepcuoi/img/qr-tien.jpg" alt="QR chuyển khoản chú rể">
-          </a>
-        </div>
-        <ul class="b-info">
-          <li><strong>Ngân hàng:</strong> MBBank</li>
-          <li><strong>Chủ TK:</strong>Đỗ Bá Tiến</li>
-          <li><strong>Số TK:</strong> <span>9876543210</span>
-              <button type="button" class="copy-btn" data-clipboard="9876543210">Copy</button>
-          </li>
-          <!-- <li><strong>Nội dung gợi ý:</strong> <code>Gui_tang_yeu_thuong_Tam_Tien_[Ten_ban]</code>
+                        </ul>
+                    </div>
+                    <div class="bank-card">
+                        <div class="b-head">
+                            <div class="avatar">🤵</div>
+                            <div>
+                                <div style="font-weight:700">Chú rể</div>
+                                <div class="meta" style="color:var(--muted)">Đỗ Tiến</div>
+                            </div>
+                        </div>
+                        <div class="qr-wrap">
+                            <a href="#" class="open-lightbox" data-src="/thiepcuoi/img/qr-tien.jpg"
+                                aria-label="Xem QR chú rể">
+                                <img class="qr" src="/thiepcuoi/img/qr-tien.jpg" alt="QR chuyển khoản chú rể">
+                            </a>
+                        </div>
+                        <ul class="b-info">
+                            <li><strong>Ngân hàng:</strong> MBBank</li>
+                            <li><strong>Chủ TK:</strong>Đỗ Bá Tiến</li>
+                            <li><strong>Số TK:</strong> <span>9876543210</span>
+                                <button type="button" class="copy-btn" data-clipboard="9876543210">Copy</button>
+                            </li>
+                            <!-- <li><strong>Nội dung gợi ý:</strong> <code>Gui_tang_yeu_thuong_Tam_Tien_[Ten_ban]</code>
               <button type="button" class="copy-btn" data-clipboard="Gui_tang_yeu_thuong_Tam_Tien_[Ten_ban]">Copy</button>
           </li> -->
-        </ul>
-      </div>
-    </div>
-    <div class="gift-note card" style="max-width:860px;margin:24px auto 0">
-      <p style="margin:0">“Tình yêu là khi hai trái tim cùng nhìn về một hướng. Cảm ơn bạn đã gửi lời chúc và sẻ chia hạnh phúc cùng chúng mình hôm nay.”</p>
-    </div>
-  </div>
-</section>
-
-<!-- RSVP (layout kept) -->
-    <section id="rsvp" class="reveal">
-      <div class="container rsvp">
-        <div class="card">
-          <span class="pill">RSVP</span>
-          <h2 class="section-title" style="text-align:left;margin-top:0">Xác nhận tham dự</h2>
-          <form id="formRSVP">
-            <div class="field"><label>Họ và tên</label><input name="name" required placeholder="Nguyễn Văn A"></div>
-            <div class="field"><label>Số điện thoại</label><input name="phone" required placeholder="090..."></div>
-            <div class="field"><label>Số khách</label>
-              <select name="guests">
-                <option>1</option><option>2</option><option>3</option><option>4+</option>
-              </select>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gift-note card" style="max-width:860px;margin:24px auto 0">
+                    <p style="margin:0">“Tình yêu là khi hai trái tim cùng nhìn về một hướng. Cảm ơn bạn đã gửi lời chúc
+                        và sẻ
+                        chia hạnh phúc cùng chúng mình hôm nay.”</p>
+                </div>
             </div>
-            <div class="field"><label>Lời nhắn</label><textarea name="msg" rows="4" placeholder="Rất mong được tham dự..."></textarea></div>
-            <button class="btn btn-primary" type="submit">Gửi xác nhận</button>
-          </form>
-          <p id="rsvpMsg" style="margin-top:12px;color:var(--muted)"></p>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0;font-family:Playfair Display,serif">Lời cảm ơn</h3>
-          <p>Cảm ơn bạn đã dành thời gian cho chúng mình. Mỗi lời chúc và sự hiện diện của bạn đều vô cùng quý giá. Hẹn gặp bạn trong ngày 12/12/2025!</p>
-          <div style="height:220px;border-radius:14px;background:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1400&auto=format&fit=crop') center/cover"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
 
-  <footer>
-    <div class="credits">© 2025 Tâm & Tiến ♥</div>
-  </footer>
+        <!-- RSVP (layout kept) -->
+        <section id="rsvp" class="reveal">
+            <div class="container rsvp">
+                <div class="card">
+                    <span class="pill">RSVP</span>
+                    <h2 class="section-title" style="text-align:left;margin-top:0">Xác nhận tham dự</h2>
+                    <form id="formRSVP">
+                        <div class="field"><label>Họ và tên</label><input name="name" required
+                                placeholder="Nguyễn Văn A"></div>
+                        <div class="field"><label>Số điện thoại</label><input name="phone" required
+                                placeholder="090..."></div>
+                        <div class="field"><label>Số khách</label>
+                            <select name="guests">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4+</option>
+                            </select>
+                        </div>
+                        <div class="field"><label>Lời nhắn</label><textarea name="msg" rows="4"
+                                placeholder="Rất mong được tham dự..."></textarea></div>
+                        <button class="btn btn-primary" type="submit">Gửi xác nhận</button>
+                    </form>
+                    <p id="rsvpMsg" style="margin-top:12px;color:var(--muted)"></p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-top:0;font-family:Playfair Display,serif">Lời cảm ơn</h3>
+                    <p>Cảm ơn bạn đã dành thời gian cho chúng mình. Mỗi lời chúc và sự hiện diện của bạn đều vô cùng quý
+                        giá. Hẹn
+                        gặp bạn trong ngày 12/12/2025!</p>
+                    <div
+                        style="height:220px;border-radius:14px;background:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1400&auto=format&fit=crop') center/cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <button class="backtop" id="backtop" title="Về đầu trang">↑</button>
-  <button id="btnMusic" class="music-toggle" type="button" aria-label="Bật nhạc" aria-pressed="false" title="Bật/Tắt nhạc">
-    <!-- Speaker ON -->
-    <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-    </svg>
-    <!-- Speaker OFF -->
-    <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-      <line x1="22" y1="9" x2="16" y2="15"></line>
-      <line x1="16" y1="9" x2="22" y2="15"></line>
-    </svg>
-  </button>
-  <div class="petals" id="petals" aria-hidden="true"></div>
+    <footer>
+        <div class="credits">© 2025 Tâm & Tiến ♥</div>
+    </footer>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh">
-    <button class="close" id="closeLightbox">✕</button>
-    <img id="lightboxImg" src="" alt="Ảnh phóng to" />
-  </div>
+    <button class="backtop" id="backtop" title="Về đầu trang">↑</button>
+    <button id="btnMusic" class="music-toggle" type="button" aria-label="Bật nhạc" aria-pressed="false"
+        title="Bật/Tắt nhạc">
+        <!-- Speaker ON -->
+        <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+        <!-- Speaker OFF -->
+        <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="22" y1="9" x2="16" y2="15"></line>
+            <line x1="16" y1="9" x2="22" y2="15"></line>
+        </svg>
+    </button>
+    <div class="petals" id="petals" aria-hidden="true"></div>
 
-  <script>
-    // ===== CONFIG =====
-    const WEDDING_DATE = new Date('2025-12-12T08:00:00+07:00');
-const MUSIC_SRC = 'music.mp3'; // đường dẫn bài nhạc của bạn
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+        <button class="close" id="closeLightbox">✕</button>
+        <img id="lightboxImg" src="" alt="Ảnh phóng to" />
+    </div>
 
-    // ===== MUSIC (auto like sample site) =====
-const music = document.getElementById('music');
-const btnMusic = document.getElementById('btnMusic');
-if(btnMusic){
-  let musicOn = false;
-  const pref = localStorage.getItem('music_pref');
-  function setMusicUI(){
-    btnMusic.classList.toggle('on', musicOn);
-    btnMusic.setAttribute('aria-pressed', musicOn);
-    btnMusic.setAttribute('aria-label', musicOn ? 'Tắt nhạc' : 'Bật nhạc');
-  }
-  function toast(msg){
-    const t = document.createElement('div');
-    t.className = 'music-toast';
-    t.textContent = msg; document.body.appendChild(t);
-    requestAnimationFrame(()=> t.classList.add('show'));
-    setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(), 300); }, 1300);
-  }
-  async function tryPlay(){
-    if(!music.src) music.src = MUSIC_SRC; music.loop = true;
-    try{ await music.play(); musicOn = true; setMusicUI(); localStorage.setItem('music_pref','on'); toast('Đang phát nhạc 🎵'); return true; }catch{ return false; }
-  }
-  function armUnlock(){
-    const unlock = async ()=>{ if(await tryPlay()){ detach(); } };
-    const events = ['click','touchstart','keydown','scroll'];
-    function attach(){ events.forEach(ev=> window.addEventListener(ev, unlock, {once:true, passive:true})); }
-    function detach(){ events.forEach(ev=> window.removeEventListener(ev, unlock, {passive:true})); }
-    attach();
-  }
-  // user toggle
-  btnMusic.addEventListener('click', async ()=>{
-    if(!musicOn){ const ok = await tryPlay(); if(!ok){ /* bị chặn */ } }
-    else{ music.pause(); musicOn = false; setMusicUI(); localStorage.setItem('music_pref','off'); toast('Đã tắt nhạc'); }
-  });
-  // auto behavior giống site mẫu: nếu đã từng bật -> cố gắng phát ngay; nếu không -> kích hoạt khi có tương tác đầu tiên
-  if(pref === 'on'){ tryPlay().then(ok=>{ if(!ok) armUnlock(); }); }
-  else{ setMusicUI(); armUnlock(); }
-}
+    <script>
+        // ===== CONFIG =====
+        const WEDDING_DATE = new Date('2025-10-01T08:00:00+07:00');
+        const MUSIC_SRC = 'music.mp3'; // đường dẫn bài nhạc của bạn
 
-// ===== COUNTDOWN =====
-    const dd = document.getElementById('dd');
-    const hh = document.getElementById('hh');
-    const mm = document.getElementById('mm');
-    const ss = document.getElementById('ss');
-    function tick(){
-      const now = new Date();
-      let diff = Math.max(0, WEDDING_DATE - now);
-      const d = Math.floor(diff / (1000*60*60*24)); diff -= d*24*60*60*1000;
-      const h = Math.floor(diff / (1000*60*60));    diff -= h*60*60*1000;
-      const m = Math.floor(diff / (1000*60));       diff -= m*60*1000;
-      const s = Math.floor(diff / 1000);
-      if(dd){dd.textContent = d}
-      if(hh){hh.textContent = String(h).padStart(2,'0')}
-      if(mm){mm.textContent = String(m).padStart(2,'0')}
-      if(ss){ss.textContent = String(s).padStart(2,'0')}
-    }
-    tick(); setInterval(tick, 1000);
+        // ===== MUSIC (auto like sample site) =====
+        const music = document.getElementById('music');
+        const btnMusic = document.getElementById('btnMusic');
+        if (btnMusic) {
+            let musicOn = false;
+            const pref = localStorage.getItem('music_pref');
+            function setMusicUI() {
+                btnMusic.classList.toggle('on', musicOn);
+                btnMusic.setAttribute('aria-pressed', musicOn);
+                btnMusic.setAttribute('aria-label', musicOn ? 'Tắt nhạc' : 'Bật nhạc');
+            }
+            function toast(msg) {
+                const t = document.createElement('div');
+                t.className = 'music-toast';
+                t.textContent = msg; document.body.appendChild(t);
+                requestAnimationFrame(() => t.classList.add('show'));
+                setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 1300);
+            }
+            async function tryPlay() {
+                if (!music.src) music.src = MUSIC_SRC; music.loop = true;
+                try { await music.play(); musicOn = true; setMusicUI(); localStorage.setItem('music_pref', 'on'); toast('Đang phát nhạc 🎵'); return true; } catch { return false; }
+            }
+            function armUnlock() {
+                const unlock = async () => { if (await tryPlay()) { detach(); } };
+                const events = ['click', 'touchstart', 'keydown', 'scroll'];
+                function attach() { events.forEach(ev => window.addEventListener(ev, unlock, { once: true, passive: true })); }
+                function detach() { events.forEach(ev => window.removeEventListener(ev, unlock, { passive: true })); }
+                attach();
+            }
+            // user toggle
+            btnMusic.addEventListener('click', async () => {
+                if (!musicOn) { const ok = await tryPlay(); if (!ok) { /* bị chặn */ } }
+                else { music.pause(); musicOn = false; setMusicUI(); localStorage.setItem('music_pref', 'off'); toast('Đã tắt nhạc'); }
+            });
+            // auto behavior giống site mẫu: nếu đã từng bật -> cố gắng phát ngay; nếu không -> kích hoạt khi có tương tác đầu tiên
+            if (pref === 'on') { tryPlay().then(ok => { if (!ok) armUnlock(); }); }
+            else { setMusicUI(); armUnlock(); }
+        }
 
-    // ===== REVEAL ON SCROLL =====
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target);} });
-    },{threshold:.18});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+        // ===== COUNTDOWN =====
+        const dd = document.getElementById('dd');
+        const hh = document.getElementById('hh');
+        const mm = document.getElementById('mm');
+        const ss = document.getElementById('ss');
+        function tick() {
+            const now = new Date();
+            let diff = Math.max(0, WEDDING_DATE - now);
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24)); diff -= d * 24 * 60 * 60 * 1000;
+            const h = Math.floor(diff / (1000 * 60 * 60)); diff -= h * 60 * 60 * 1000;
+            const m = Math.floor(diff / (1000 * 60)); diff -= m * 60 * 1000;
+            const s = Math.floor(diff / 1000);
+            if (dd) { dd.textContent = d }
+            if (hh) { hh.textContent = String(h).padStart(2, '0') }
+            if (mm) { mm.textContent = String(m).padStart(2, '0') }
+            if (ss) { ss.textContent = String(s).padStart(2, '0') }
+        }
+        tick(); setInterval(tick, 1000);
 
-    // ===== PARALLAX (disable on mobile to avoid shift) =====
-const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
-const mqMobile = window.matchMedia('(max-width: 768px)');
-function updateParallax(){
-  const vh = window.innerHeight;
-  parallaxEls.forEach(el=>{
-    if(mqMobile.matches){ el.style.transform = 'none'; return; }
-    const MAX_SHIFT = 80; // px on desktop
-    const speed = parseFloat(el.dataset.speed || 0.08);
-    const r = el.getBoundingClientRect();
-    const progress = (r.top + r.height/2 - vh/2) / vh; // -1..1 around center
-    let offset = -progress * speed * MAX_SHIFT;
-    if(offset > MAX_SHIFT) offset = MAX_SHIFT;
-    if(offset < -MAX_SHIFT) offset = -MAX_SHIFT;
-    el.style.transform = `translateY(${offset}px)`;
-  });
-}
-window.addEventListener('scroll', updateParallax, {passive:true});
-window.addEventListener('resize', updateParallax);
-updateParallax();
+        // ===== REVEAL ON SCROLL =====
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
+        }, { threshold: .18 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // ===== PETALS RAIN (global overlay) =====
-const petalsWrap = document.getElementById('petals');
-let petalTimer; const MAX_PETALS = 80;
-function spawnPetal(){
-  if(!petalsWrap) return;
-  if(petalsWrap.childElementCount > MAX_PETALS){
-    petalsWrap.firstElementChild?.remove();
-  }
-  const s = 10 + Math.random()*14; // 10-24px
-  const p = document.createElement('span');
-  p.className = 'petal';
-  p.style.left = Math.random()*100 + 'vw';
-  p.style.width = s+'px';
-  p.style.height = (s*0.75)+'px';
-  p.style.setProperty('--dur', (9+Math.random()*9)+'s');
-  p.style.setProperty('--dx', (Math.random()*60-30)+'vw');
-  p.style.setProperty('--rot', (Math.random()*360)+'deg');
-  petalsWrap.appendChild(p);
-  setTimeout(()=>p.remove(), 22000);
-}
-function startPetals(){
-  if(petalTimer) return;
-  for(let i=0;i<20;i++) setTimeout(spawnPetal, i*120);
-  petalTimer = setInterval(spawnPetal, 700);
-}
-function stopPetals(){ clearInterval(petalTimer); petalTimer=null; }
+        // ===== PARALLAX (disable on mobile to avoid shift) =====
+        const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
+        const mqMobile = window.matchMedia('(max-width: 768px)');
+        function updateParallax() {
+            const vh = window.innerHeight;
+            parallaxEls.forEach(el => {
+                if (mqMobile.matches) { el.style.transform = 'none'; return; }
+                const MAX_SHIFT = 80; // px on desktop
+                const speed = parseFloat(el.dataset.speed || 0.08);
+                const r = el.getBoundingClientRect();
+                const progress = (r.top + r.height / 2 - vh / 2) / vh; // -1..1 around center
+                let offset = -progress * speed * MAX_SHIFT;
+                if (offset > MAX_SHIFT) offset = MAX_SHIFT;
+                if (offset < -MAX_SHIFT) offset = -MAX_SHIFT;
+                el.style.transform = `translateY(${offset}px)`;
+            });
+        }
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        window.addEventListener('resize', updateParallax);
+        updateParallax();
 
-document.addEventListener('visibilitychange', ()=>{ if(document.hidden) stopPetals(); else startPetals(); });
-startPetals();
+        // ===== PETALS RAIN (global overlay) =====
+        const petalsWrap = document.getElementById('petals');
+        let petalTimer; const MAX_PETALS = 80;
+        function spawnPetal() {
+            if (!petalsWrap) return;
+            if (petalsWrap.childElementCount > MAX_PETALS) {
+                petalsWrap.firstElementChild?.remove();
+            }
+            const s = 10 + Math.random() * 14; // 10-24px
+            const p = document.createElement('span');
+            p.className = 'petal';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = s + 'px';
+            p.style.height = (s * 0.75) + 'px';
+            p.style.setProperty('--dur', (9 + Math.random() * 9) + 's');
+            p.style.setProperty('--dx', (Math.random() * 60 - 30) + 'vw');
+            p.style.setProperty('--rot', (Math.random() * 360) + 'deg');
+            petalsWrap.appendChild(p);
+            setTimeout(() => p.remove(), 22000);
+        }
+        function startPetals() {
+            if (petalTimer) return;
+            for (let i = 0; i < 20; i++) setTimeout(spawnPetal, i * 120);
+            petalTimer = setInterval(spawnPetal, 700);
+        }
+        function stopPetals() { clearInterval(petalTimer); petalTimer = null; }
 
-// ===== LIGHTBOX =====
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const closeLightbox = document.getElementById('closeLightbox');
-    document.querySelectorAll('.g-item, .open-lightbox').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        e.preventDefault();
-        lightboxImg.src = a.dataset.src || a.querySelector('img').src;
-        lightbox.classList.add('open');
-      });
-    });
-    if(closeLightbox){ closeLightbox.addEventListener('click', ()=> lightbox.classList.remove('open')); }
-    lightbox?.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.classList.remove('open'); });
+        document.addEventListener('visibilitychange', () => { if (document.hidden) stopPetals(); else startPetals(); });
+        startPetals();
 
-    // ===== COPY TO CLIPBOARD (gift) =====
-document.querySelectorAll('.copy-btn').forEach(btn=>{
-  btn.addEventListener('click', async ()=>{
-    try{
-      await navigator.clipboard.writeText(btn.dataset.clipboard||'');
-      const t = btn.textContent; btn.textContent = 'Đã copy';
-      setTimeout(()=> btn.textContent = t, 1200);
-    }catch(e){ console.log(e); }
-  });
-});
+        // ===== LIGHTBOX =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeLightbox = document.getElementById('closeLightbox');
+        document.querySelectorAll('.g-item, .open-lightbox').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                lightboxImg.src = a.dataset.src || a.querySelector('img').src;
+                lightbox.classList.add('open');
+            });
+        });
+        if (closeLightbox) { closeLightbox.addEventListener('click', () => lightbox.classList.remove('open')); }
+        lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 
-// ===== BACK TO TOP =====
-    const backtop = document.getElementById('backtop');
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 600) backtop.classList.add('show'); else backtop.classList.remove('show');
-    });
-    backtop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+        // ===== COPY TO CLIPBOARD (gift) =====
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(btn.dataset.clipboard || '');
+                    const t = btn.textContent; btn.textContent = 'Đã copy';
+                    setTimeout(() => btn.textContent = t, 1200);
+                } catch (e) { console.log(e); }
+            });
+        });
 
-    // ===== SIMPLE RSVP (demo) =====
-    const form = document.getElementById('formRSVP');
-    if(form){
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(this));
-        console.log('RSVP:', data);
-        document.getElementById('rsvpMsg').textContent = 'Cảm ơn bạn! Chúng mình đã nhận được xác nhận.';
-        this.reset();
-      });
-    }
-  </script>
+        // ===== BACK TO TOP =====
+        const backtop = document.getElementById('backtop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) backtop.classList.add('show'); else backtop.classList.remove('show');
+        });
+        backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // ===== SIMPLE RSVP (demo) =====
+        const form = document.getElementById('formRSVP');
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const data = Object.fromEntries(new FormData(this));
+                console.log('RSVP:', data);
+                document.getElementById('rsvpMsg').textContent = 'Cảm ơn bạn! Chúng mình đã nhận được xác nhận.';
+                this.reset();
+            });
+        }
+    </script>
 </body>
+
 </html>
