@@ -1,0 +1,1229 @@
+:root {
+    --bg: #fff9fb;
+    --text: #2a2a2a;
+    --muted: #6b7280;
+    --primary: #e86c8b;
+    --primary-deep: #cc3f68;
+    --accent: #7bb5b3;
+    --card: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Quicksand", Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial
+}
+
+img {
+    max-width: 100%;
+    display: block
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+/* ---------- Header / Hero (keep layout, add full-screen + Ken Burns) ---------- */
+.hero {
+    position: relative;
+    height: 100svh;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    overflow: hidden
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    transform-origin: center;
+    filter: brightness(.6);
+    animation: kenburns 18s ease-in-out infinite alternate
+}
+
+@keyframes kenburns {
+    0% {
+        transform: scale(1) translate(0, 0)
+    }
+
+    100% {
+        transform: scale(1.12) translate(2%, -2%)
+    }
+}
+
+.wreath {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(72vmin, 540px);
+    opacity: .9;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .25))
+}
+
+.wreath svg {
+    width: 100%;
+    height: auto
+}
+
+.hero-card {
+    position: relative;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, .22);
+    border: 1px solid rgba(255, 255, 255, .35);
+    box-shadow: var(--shadow);
+    padding: 28px 26px;
+    border-radius: var(--radius);
+    text-align: center;
+    max-width: 760px;
+    width: 92%;
+    animation: fadeInUp .9s ease both
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.couple {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(40px, 7vw, 92px);
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, .25)
+}
+
+.date {
+    font-family: "Playfair Display", serif;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    color: #fff;
+    opacity: .95
+}
+
+.hero-cta {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: .25s ease
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff
+}
+
+.btn-primary:hover {
+    background: var(--primary-deep);
+    transform: translateY(-2px)
+}
+
+.btn-ghost {
+    background: rgba(255, 255, 255, .9);
+    border-color: #eee
+}
+
+.btn-ghost:hover {
+    transform: translateY(-2px)
+}
+
+.down {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    opacity: .9;
+    display: grid;
+    place-items: center
+}
+
+.down svg {
+    animation: bounce 1.6s infinite
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(6px)
+    }
+}
+
+/* ---------- Sections (layout kept) ---------- */
+section {
+    padding: 50px 20px
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto
+}
+
+
+
+.section-sub {
+    color: var(--muted);
+    text-align: center;
+    margin: 0 0 36px
+}
+
+/* Countdown */
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(110px, 1fr));
+    gap: 14px;
+    max-width: 720px;
+    margin: 28px auto 0
+}
+
+.time {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 18px;
+    text-align: center;
+    transition: transform .25s ease, box-shadow .25s ease
+}
+
+.time:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, .12)
+}
+
+.time .num {
+    font-size: clamp(28px, 6vw, 44px);
+    font-weight: 800
+}
+
+.time .lbl {
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: 12px
+}
+
+/* Story */
+.story {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    align-items: center
+}
+
+.story .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px
+}
+
+.pill {
+    display: inline-block;
+    background: #fdf2f6;
+    color: var(--primary-deep);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 8px
+}
+
+/* Events */
+.events {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px
+}
+
+.event {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease
+}
+
+.event:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, .12)
+}
+
+.event .cover {
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.02)
+}
+
+.event .body {
+    padding: 20px
+}
+
+.event h3 {
+    margin: 0 0 6px;
+    font-family: "Playfair Display", serif
+}
+
+.event .meta {
+    color: var(--muted)
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px
+}
+
+.g-item {
+    grid-column: span 4;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    position: relative
+}
+
+.g-item img {
+    transition: transform .5s ease
+}
+
+.g-item:hover img {
+    transform: scale(1.05)
+}
+
+.g-item.tall {
+    grid-row: span 2
+}
+
+/* RSVP */
+.rsvp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px
+}
+
+.card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 14px
+}
+
+.field input,
+.field textarea,
+.field select {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font: inherit;
+    background: #fff
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+    outline: 2px solid rgba(232, 108, 139, .25);
+    border-color: #f2a1b6
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    background: #111;
+    color: #eee;
+    text-align: center;
+    position: relative
+}
+
+footer .credits {
+    opacity: .8
+}
+
+/* Parallax band */
+.band {
+    height: 280px;
+    background: url('https://images.unsplash.com/photo-1495385794356-15371f348c31?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
+    border-radius: 24px;
+    margin: 12px 0;
+    box-shadow: var(--shadow)
+}
+
+/* Reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: all .7s ease
+}
+
+.revealed {
+    opacity: 1;
+    transform: none
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 50
+}
+
+.lightbox.open {
+    display: flex
+}
+
+.lightbox img {
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .4)
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+/* Back to top */
+.backtop {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    padding: 12px 14px;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .25s;
+    z-index: 40
+}
+
+.backtop.show {
+    opacity: 1;
+    transform: none
+}
+
+/* Petals */
+.petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 20
+}
+
+.petal {
+    position: absolute;
+    top: -10vh;
+    width: 18px;
+    height: 14px;
+    background: radial-gradient(circle at 30% 30%, #fff 0 30%, #f8b3c6 31% 100%);
+    border-radius: 60% 60% 60% 60%/70% 70% 40% 40%;
+    opacity: .85;
+    filter: blur(.2px);
+    animation: fall var(--dur, 12s) linear infinite, sway 5s ease-in-out infinite;
+    transform-origin: 50% 0
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(var(--dx, 0), 110vh, 0) rotate(var(--rot, 180deg))
+    }
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        margin-left: 0
+    }
+
+    50% {
+        margin-left: 12px
+    }
+}
+
+/* Parallax attribute */
+[data-parallax] {
+    will-change: transform
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+    .story {
+        grid-template-columns: 1fr
+    }
+
+    .events {
+        grid-template-columns: 1fr
+    }
+
+    .gallery .g-item {
+        grid-column: span 6
+    }
+
+    .rsvp {
+        grid-template-columns: 1fr
+    }
+
+    .band {
+        height: 220px
+    }
+}
+
+@media (max-width: 620px) {
+    .countdown {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .gallery .g-item {
+        grid-column: span 12
+    }
+}
+
+/* Gift / QR */
+.gift {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px
+}
+
+.bank-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px
+}
+
+.b-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: #fdf2f6;
+    display: grid;
+    place-items: center;
+    font-size: 22px
+}
+
+.qr-wrap {
+    display: grid;
+    place-items: center;
+    margin: 8px 0 6px
+}
+
+.qr {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 12px;
+    box-shadow: var(--shadow)
+}
+
+.b-info {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: grid;
+    gap: 8px
+}
+
+.copy-btn {
+    margin-left: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600
+}
+
+.copy-btn:hover {
+    transform: translateY(-1px)
+}
+
+.gift-note {
+    margin-top: 22px;
+    text-align: center
+}
+
+@media (max-width:980px) {
+    .gift {
+        grid-template-columns: 1fr
+    }
+}
+
+/* Floating Music Toggle */
+.music-toggle {
+    position: fixed;
+    left: 18px;
+    bottom: 22px;
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    z-index: 60;
+    transition: transform .2s ease, background .2s ease
+}
+
+.music-toggle:hover {
+    transform: translateY(-2px)
+}
+
+.music-toggle svg {
+    width: 24px;
+    height: 24px
+}
+
+/* .music-toggle .ic-on {
+    display: none
+}
+
+.music-toggle.on .ic-on {
+    display: block
+}
+
+.music-toggle.on .ic-off {
+    display: none
+} */
+
+.music-toggle.on {
+    background: var(--primary-deep);
+    animation: pulse 1.8s ease-out infinite
+}
+
+/* mặc định: hiện icon tắt, ẩn icon bật */
+.music-toggle .ic-off {
+    display: block;
+}
+
+.music-toggle .ic-on {
+    display: none;
+}
+
+/* khi có class .on trên nút -> hiện icon bật, ẩn icon tắt */
+.music-toggle.on .ic-on {
+    display: block;
+}
+
+.music-toggle.on .ic-off {
+    display: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(232, 108, 139, .45)
+    }
+
+    70% {
+        box-shadow: 0 0 0 16px rgba(232, 108, 139, 0)
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(232, 108, 139, 0)
+    }
+}
+
+@media (max-width:620px) {
+    .music-toggle {
+        width: 52px;
+        height: 52px;
+        left: 14px;
+        bottom: 18px
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* fix mobile overlay issue with fixed backgrounds */
+    .band {
+        background-attachment: scroll !important
+    }
+}
+
+.music-toast {
+    position: fixed;
+    left: 86px;
+    bottom: 32px;
+    background: rgba(0, 0, 0, .75);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: .3s;
+    z-index: 60
+}
+
+.music-toast.show {
+    opacity: 1;
+    transform: none
+}
+
+@media (max-width:620px) {
+    .music-toast {
+        left: 76px;
+        bottom: 26px;
+        font-size: 12px
+    }
+}
+
+/* Typography & hero scaling tweaks */
+:root {
+    --hero-max: 1000px
+}
+
+.hero-card {
+    max-width: var(--hero-max);
+    padding: 40px 36px;
+    border-radius: 24px
+}
+
+.couple {
+    font-size: clamp(56px, 9.5vw, 128px);
+    letter-spacing: .5px
+}
+
+.date {
+    font-size: clamp(14px, 1.6vw, 18px);
+    margin-top: 10px
+}
+
+.hero-cta .btn {
+    padding: 14px 22px;
+    font-size: 16px
+}
+
+.section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(28px, 4vw, 46px);
+    letter-spacing: .02em
+}
+
+
+/* Flower above countdown title — fix overlap */
+/* Flower GIF above countdown title */
+.flower-wrap {
+    display: grid;
+    place-items: center;
+    /* tạo khoảng cách đẹp với tiêu đề */
+    margin: -4px 0 18px;
+    pointer-events: none;
+    position: relative;
+    z-index: 21;
+    /* > .petals (z-index:20) để không bị đè */
+}
+
+.flower-gif {
+    width: clamp(76px, 11vw, 240px);
+    /* responsive */
+    height: auto;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .12));
+}
+
+/* Nếu muốn cánh hoa rơi đè lên GIF, đổi z-index về 19 */
+
+
+/* === Count Hero with full background === */
+.count-hero {
+    position: relative;
+    min-height: 92svh;
+    display: grid;
+    place-items: center;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.count-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to bottom, rgba(255, 255, 255, .75) 0%, rgba(255, 249, 251, .9) 35%, rgba(255, 249, 251, 1) 100%),
+        url('https://images.unsplash.com/photo-1522673607200-164d6b079b65?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    transform: scale(1.03);
+    filter: saturate(1.05) contrast(1.02);
+}
+
+.count-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.script-line {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(26px, 4.8vw, 52px);
+    text-align: center;
+    color: #d1749a;
+    opacity: .95;
+    margin-bottom: 6px;
+}
+
+.count-title {
+    font-family: "Cormorant Garamond", "Playfair Display", serif;
+    font-size: clamp(32px, 4.6vw, 56px);
+    text-align: center;
+    margin: 0;
+    letter-spacing: .02em;
+}
+
+.count-sub {
+    text-align: center;
+    color: var(--muted);
+    margin: 8px 0 22px;
+}
+
+
+/* responsive */
+@media (max-width:980px) {
+    .count-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .cal-card {
+        order: 2;
+    }
+
+    .count-row {
+        order: 1;
+    }
+}
+
+@media (max-width:620px) {
+    .count-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.cal-grid .wd {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.cal-grid .day {
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .04);
+    font-weight: 700;
+}
+
+.cal-grid .day.is-empty {
+    background: transparent;
+    box-shadow: none;
+}
+
+.cal-grid .day.is-wedding {
+    background: var(--primary);
+    color: #fff;
+    position: relative;
+}
+
+.cal-grid .day.is-wedding::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 12px;
+    box-shadow: 0 0 0 0 rgba(232, 108, 139, .45);
+    animation: ringPulse 2.4s ease-out infinite;
+}
+
+@keyframes ringPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(232, 108, 139, .45)
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(232, 108, 139, 0)
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(232, 108, 139, 0)
+    }
+}
+
+  
+  /* responsive */
+  @media (max-width: 980px){
+    .cal-poster::before, .cal-poster::after{ left:16px; right:16px; }
+  }
+
+
+/* ===== Calendar (mềm, chỉ cách điệu đúng ngày cưới) ===== */
+/* ====== COUNTDOWN – thanh thoát, cân giữa, bóng nhẹ ====== */
+.count-wrap{
+    display:grid;
+    grid-template-columns:1fr;     /* countdown trên – calendar dưới */
+    gap:20px;
+    max-width:980px;
+    margin:0 auto;
+  }
+  
+  .count-row{
+    order:1;
+    background:transparent;        /* bỏ nền mờ cũ */
+    border:0; backdrop-filter:none; box-shadow:none; padding:0;
+    display:grid;
+    grid-template-columns:repeat(4, minmax(150px,1fr));
+    gap:16px;
+    max-width:760px;
+    margin:0 auto;                 /* căn giữa */
+  }
+  .count-row .time{
+    background:#fff;
+    border:1px solid #f1e6ea;
+    border-radius:18px;
+    padding:18px 20px;
+    text-align:center;
+    box-shadow:0 14px 30px rgba(0,0,0,.08);
+    transition:.2s ease;
+  }
+  .count-row .time:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 36px rgba(0,0,0,.10);
+  }
+  .count-row .num{
+    font-family:"Cormorant Garamond", serif;   /* số mềm hơn */
+    font-weight:800;
+    font-size:clamp(30px,4.2vw,42px);
+    line-height:1;
+  }
+  .count-row .lbl{
+    margin-top:6px;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  
+  /* mobile: chia 2 cột cho thoáng */
+  @media (max-width:520px){
+    .count-row{ grid-template-columns:repeat(2, minmax(120px,1fr)); gap:12px; }
+  }
+  
+  /* ====== CALENDAR – cân giữa, lưới đều, viền & khoảng hợp lý ====== */
+  .cal-modern{
+    order:2;
+    width:100%;
+    max-width:920px;             /* rộng vừa mắt trên PC */
+    margin:4px auto 0;           /* căn giữa dưới countdown */
+    background:linear-gradient(180deg,#fff,#fff9fb);
+    border-radius:22px;
+    box-shadow:0 22px 48px rgba(0,0,0,.12);
+    padding:18px 16px 22px;
+    position:relative; overflow:hidden;
+  }
+  .cal-modern::before,
+  .cal-modern::after{
+    content:""; position:absolute; left:22px; right:22px; height:1.5px;
+    background:#e8dde2; opacity:.95;
+  }
+  .cal-modern::before{ top:58px; }
+  .cal-modern::after { bottom:14px; }
+  
+  .cal-title{
+    text-align:center;
+    font-family:"Cormorant Garamond","Playfair Display",serif;
+    font-weight:700; letter-spacing:.02em; color:#3e3c3d;
+    font-size:clamp(18px,2.4vw,22px);
+    margin:0 0 14px;
+  }
+  
+  /* lưới ngày đều & cân */
+  .cal-grid{
+    display:grid; grid-template-columns:repeat(7,1fr);
+    gap:10px 12px;                 /* ngang rộng hơn một chút cho cân */
+    padding:10px 20px 18px;        /* padding đối xứng 2 bên */
+    min-height:auto;
+  }
+  .cal-grid .wd{
+    display:flex; align-items:center; justify-content:center;
+    height:34px;
+    font-weight:700; color:#8a8488; font-size:14px;
+    padding-bottom:6px; border-bottom:1px solid #e8dde2;
+  }
+  .cal-grid .day{ height:44px; display:grid; place-items:center; position:relative; }
+  .cal-grid .day.is-empty{ opacity:.35; }
+  
+  .cal-grid .day .n{
+    width:44px; height:34px; border-radius:12px;
+    display:grid; place-items:center;
+    background:#fff; color:#5c595b;
+    font-family:"Cormorant Garamond",serif; font-weight:700; font-size:18px;
+    box-shadow:0 10px 18px rgba(0,0,0,.06);
+  }
+  
+  /* — chỉ ngày cưới (01/10/2025) giữ hiệu ứng trái tim & vòng sáng — */
+  .cal-grid .day.is-wedding .n{
+    border:2px solid #f6abc2; color:#cc3f68; background:#fff;
+    box-shadow:0 14px 26px rgba(232,108,139,.18);
+    position:relative;
+  }
+  .cal-grid .day.is-wedding .n::after{
+    content:""; position:absolute; inset:-2px; border-radius:14px;
+    box-shadow:0 0 0 0 rgba(232,108,139,.35);
+    animation:ringPulse 2.2s ease-out infinite .6s;
+  }
+  .cal-grid .day.is-wedding::after{
+    content:""; position:absolute; right:-4px; top:-6px; width:22px; height:22px;
+    background:url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>\
+  <path d='M12 21s-6.716-4.686-9.193-7.164C1.32 12.35 1 10.97 1 9.6 1 7.07 3.07 5 5.6 5c1.54 0 3.04.74 4 1.9C10.36 5.74 11.86 5 13.4 5 15.93 5 18 7.07 18 9.6c0 1.37-.32 2.75-1.807 4.236C18.716 16.314 12 21 12 21z' fill='%23e11d48' stroke='white' stroke-width='2'/>\
+  </svg>") center/contain no-repeat;
+    filter:drop-shadow(0 6px 12px rgba(225,29,72,.35));
+    animation:heartPop .5s ease, heartBeat 2.4s ease-in-out infinite .5s;
+  }
+  
+  /* Hover nhẹ trên PC cho đều mắt */
+  @media (pointer:fine){
+    .cal-grid .day .n:hover{ transform:translateY(-2px); box-shadow:0 12px 22px rgba(0,0,0,.09); }
+  }
+  
+  /* ====== Responsive ====== */
+  @media (max-width:780px){
+    .count-row{ grid-template-columns:repeat(4, minmax(100px,1fr)); }
+    .cal-grid{ gap:8px 10px; padding:10px 14px 16px; }
+    .cal-grid .day{ height:40px; }
+    .cal-grid .day .n{ width:40px; height:30px; font-size:17px; }
+    .cal-grid .day.is-wedding::after{ right:-2px; top:-5px; width:20px; height:20px; }
+  }
+  @media (max-width:480px){
+    .count-row{ grid-template-columns:repeat(2, minmax(120px,1fr)); gap:10px; }
+    .cal-modern{ max-width:100%; padding:14px 10px 16px; }
+    .cal-modern::before,.cal-modern::after{ left:12px; right:12px; }
+    .cal-grid{ gap:6px; padding:8px 10px 14px; }
+    .cal-grid .wd{ font-size:12px; height:28px; }
+    .cal-grid .day{ height:34px; }
+    .cal-grid .day .n{ width:34px; height:26px; font-size:15px; border-radius:10px; }
+    .cal-grid .day.is-wedding::after{ width:16px; height:16px; }
+  }
+  
+  /* animations (giữ nguyên) */
+  @keyframes heartPop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes heartBeat{0%,100%{transform:none}50%{transform:scale(1.12)}}
+  @keyframes ringPulse{0%{box-shadow:0 0 0 0 rgba(232,108,139,.35)}70%{box-shadow:0 0 0 14px rgba(232,108,139,0)}100%{box-shadow:0 0 0 0 rgba(232,108,139,0)}}
+  
+  
+
+/* ===== Story Timeline ===== */
+.story-timeline .pill{ margin-left:auto; margin-right:auto; display:block; }
+
+.timeline{
+  position:relative;
+  margin: 18px auto 0;
+  list-style:none; padding:0;
+}
+
+/* — Mobile: 1 cột, line bên trái — */
+.tli{ position:relative; padding-left:56px; margin:22px 0; }
+.timeline::before{
+  content:""; position:absolute; left:28px; top:0; bottom:0;
+  width:2px; background:#e9dfe3; border-radius:2px;
+}
+.tldot{
+  position:absolute; left:22px; top:22px;
+  width:12px; height:12px; border-radius:50%;
+  background:var(--primary);
+  box-shadow:0 0 0 4px #fff, 0 0 0 8px rgba(232,108,139,.25);
+}
+.tlcard{
+  background:var(--card); border-radius:18px; box-shadow:var(--shadow);
+  padding:16px 16px 14px; overflow:hidden;
+}
+.tlcard img{ width:100%; height:auto; border-radius:14px; margin-top:10px; display:block; }
+
+.tldate{
+  display:inline-block;
+  background:#fff3f7; color:#cc3f68;
+  border:1px solid #f6c5d4;
+  border-radius:999px; padding:6px 10px; font-weight:700; font-size:12px; letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.tlcard h3{
+  margin:6px 0 8px;
+  font-family:"Cormorant Garamond", serif;
+  font-size: clamp(20px, 3.6vw, 28px);
+}
+
+/* — Desktop: so le 2 bên, line ở giữa — */
+@media (min-width:980px){
+  .timeline{ max-width:1100px; }
+  .timeline::before{ left:50%; transform:translateX(-1px); }
+  .tli{ padding:0; }
+  .tldot{
+    left:calc(50% - 6px); top: 50%; transform:translateY(-50%);
+  }
+  .tli .tlcard{
+    width: min(520px, 46vw);
+    position:relative;
+  }
+  /* odd -> bên trái ; even -> bên phải */
+  .tli:nth-child(odd)  .tlcard{ margin-right:auto; padding-right:22px; }
+  .tli:nth-child(even) .tlcard{ margin-left:auto;  padding-left:22px;  }
+
+  /* mũi nối hướng về line */
+  .tli:nth-child(odd)  .tlcard::after,
+  .tli:nth-child(even) .tlcard::after{
+    content:""; position:absolute; top:28px; width:10px; height:10px; background:#fff;
+    box-shadow: -2px 2px 12px rgba(0,0,0,.07);
+    transform:rotate(45deg);
+  }
+  .tli:nth-child(odd)  .tlcard::after{ right:-5px; }
+  .tli:nth-child(even) .tlcard::after{ left:-5px;  }
+}
+
+/* — Nhẹ nhàng khi reveal (tận dụng .reveal sẵn có) — */
+.story-timeline .tlcard{
+  opacity:0; transform: translateY(14px); transition: .6s ease;
+}
+.story-timeline.revealed .tlcard{ opacity:1; transform:none; }
+
+/* ===== Transition mượt từ countdown xuống story ===== */
+.sec-transition{
+  position:relative;
+  height:92px;
+  margin:-18px 0 0;              /* kéo sát phần trên cho liền mạch */
+  pointer-events:none;
+  z-index:1;
+}
+.sec-transition::after{
+  content:"";
+  position:absolute; left:0; right:0; top:-1px; height:72px;
+  background:url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'>\
+    <path fill='%23fde6ef' d='M0 0h1440v66c-120 24-240 36-360 36s-240-12-360-36S480 30 360 30 120 42 0 66V0z'/>\
+  </svg>") center/100% 100% no-repeat;
+  opacity:.85;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.06));
+}
+.sec-transition::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,0) 0%,
+                                      rgba(255,249,251,.65) 45%,
+                                      #fff9fb 100%);
+}
+
+/* ===== Headline “Chuyện chúng mình” gọn gàng, cân giữa ===== */
+.sec-head{ text-align:center; margin: 6px 0 20px; }
+.pill-soft{
+  display:inline-block;
+  background:#fff3f7;
+  border:1px solid #f6c5d4;
+  color:#cc3f68;
+  padding:6px 12px;
+  border-radius:999px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  font-size:12px;
+}
+.story-title{
+  margin:10px 0 6px;
+  font-family:"Cormorant Garamond","Playfair Display",serif;
+  font-size: clamp(28px,4.6vw,48px);
+  letter-spacing:.02em;
+}
+.story-title-glow{
+  width:min(860px,86%);
+  height:10px;
+  border-radius:999px;
+  margin:8px auto 2px;
+  background: radial-gradient(ellipse at center,
+              rgba(232,108,139,.28) 0%, rgba(232,108,139,0) 70%);
+  opacity:.35;
+}
+
+/* bảo đảm pill trong story luôn giữa (kể cả CSS cũ còn lại) */
+.story-timeline .pill{ margin-left:auto; margin-right:auto; display:inline-block; }
+
+
