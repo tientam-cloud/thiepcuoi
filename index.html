@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Thiệp Cưới – Tâm & Tiến</title>
     <meta name="description" content="Thiệp cưới online – Tâm & Tiến" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="SHORTCUT ICON" href="/img/2021_08_30_bieu-tuong-dam-cuoi-10.jpg" type="image/x-icon" />
+    <meta property="og:image" content="/img/trap.webp" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Quicksand:wght@400;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Quicksand:wght@400;600;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -669,7 +669,7 @@
             height: 24px
         }
 
-        .music-toggle .ic-on {
+        /* .music-toggle .ic-on {
             display: none
         }
 
@@ -679,12 +679,20 @@
 
         .music-toggle.on .ic-off {
             display: none
-        }
+        } */
 
         .music-toggle.on {
             background: var(--primary-deep);
             animation: pulse 1.8s ease-out infinite
         }
+
+        /* mặc định: hiện icon tắt, ẩn icon bật */
+        .music-toggle .ic-off { display: block; }
+        .music-toggle .ic-on  { display: none; }
+
+        /* khi có class .on trên nút -> hiện icon bật, ẩn icon tắt */
+        .music-toggle.on .ic-on  { display: block; }
+        .music-toggle.on .ic-off { display: none; }
 
         @keyframes pulse {
             0% {
@@ -886,7 +894,7 @@
                 <div class="events">
                     <div class="event">
                         <div class="cover"
-                            style="background-image:url('/thiepcuoi/img/to/crop1.JPG?q=80&w=1400&auto=format&fit=crop')">
+                            style="background-image:url('https://koreamarket.vn/data/tiendo/to/crop1.JPG?q=80&w=1400&auto=format&fit=crop')">
                         </div>
                         <div class="body">
                             <h3>Nhà Gái</h3>
@@ -899,7 +907,7 @@
                     </div>
                     <div class="event">
                         <div class="cover"
-                            style="background-image:url('/thiepcuoi/img/to/crop2-2.JPG?q=80&w=1400&auto=format&fit=crop')">
+                            style="background-image:url('https://koreamarket.vn/data/tiendo/to/crop2-2.JPG?q=80&w=1400&auto=format&fit=crop')">
                         </div>
                         <div class="body">
                             <h3>Nhà Trai</h3>
@@ -1099,7 +1107,7 @@
     <script>
         // ===== CONFIG =====
         const WEDDING_DATE = new Date('2025-10-01T08:00:00+07:00');
-        const MUSIC_SRC = 'music.mp3'; // đường dẫn bài nhạc của bạn
+        const MUSIC_SRC = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // đường dẫn bài nhạc của bạn
 
         // ===== MUSIC (auto like sample site) =====
         const music = document.getElementById('music');
@@ -1139,6 +1147,30 @@
             if (pref === 'on') { tryPlay().then(ok => { if (!ok) armUnlock(); }); }
             else { setMusicUI(); armUnlock(); }
         }
+
+        // btnMusic.addEventListener('click', async () => {
+        //     if (!musicOn) {
+        //         // đổi UI trước cho phản hồi tức thì
+        //         musicOn = true; 
+        //         setMusicUI();
+
+        //         const ok = await tryPlay();
+        //         if (!ok) {
+        //         // revert nếu bị chặn
+        //         musicOn = false;
+        //         setMusicUI();
+        //         toast('Trình duyệt đang chặn phát nhạc. Hãy chạm/lăn trang 1 lần nữa.');
+        //         armUnlock();
+        //         }
+        //     } else {
+        //         music.pause();
+        //         musicOn = false;
+        //         setMusicUI();
+        //         localStorage.setItem('music_pref', 'off');
+        //         toast('Đã tắt nhạc');
+        //     }
+        // });
+
 
         // ===== COUNTDOWN =====
         const dd = document.getElementById('dd');
@@ -1242,11 +1274,38 @@
         });
 
         // ===== BACK TO TOP =====
-        const backtop = document.getElementById('backtop');
+        // const backtop = document.getElementById('backtop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 600) backtop.classList.add('show'); else backtop.classList.remove('show');
         });
-        backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        // backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Cuộn mượt với thời gian tùy chỉnh
+        function smoothScrollToTop(duration = 1500) {
+            const start = window.scrollY;
+            const startTime = performance.now();
+
+            function scrollStep(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1); // 0 -> 1
+
+                // easing: easeInOutQuad
+                const ease = progress < 0.5
+                    ? 2 * progress * progress
+                    : -1 + (4 - 2 * progress) * progress;
+
+                window.scrollTo(0, start - (start * ease));
+
+                if (progress < 1) {
+                    requestAnimationFrame(scrollStep);
+                }
+            }
+
+            requestAnimationFrame(scrollStep);
+        }
+
+        backtop.addEventListener('click', () => smoothScrollToTop(1500)); // 1500ms = 1.5s
+
 
         // ===== SIMPLE RSVP (demo) =====
         const form = document.getElementById('formRSVP');
@@ -1259,6 +1318,44 @@
                 this.reset();
             });
         }
+
+        // Cuộn mượt đến section với thời gian tùy chỉnh
+        function smoothScrollTo(targetSelector, duration = 1000) {
+            const target = document.querySelector(targetSelector);
+            if (!target) return;
+
+            const start = window.scrollY;
+            const end = target.getBoundingClientRect().top + window.scrollY;
+            const startTime = performance.now();
+
+            function step(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing: easeInOutQuad
+                const ease = progress < 0.5
+                    ? 2 * progress * progress
+                    : -1 + (4 - 2 * progress) * progress;
+
+                window.scrollTo(0, start + (end - start) * ease);
+
+                if (progress < 1) requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        // Áp dụng cho tất cả các link cuộn trong trang
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.length > 1) { // bỏ qua nếu chỉ là '#'
+                    e.preventDefault();
+                    smoothScrollTo(targetId, 1200); // 1.2 giây
+                }
+            });
+        });
+
     </script>
 </body>
 
