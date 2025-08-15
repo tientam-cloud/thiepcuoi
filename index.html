@@ -9,6 +9,7 @@
     <link rel="SHORTCUT ICON" href="/thiepcuoi/img/2021_08_30_bieu-tuong-dam-cuoi-10.jpg" type="image/x-icon" />
     <meta property="og:image" content="/thiepcuoi/img/trap.webp" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Quicksand:wght@400;600;700&display=swap"
         rel="stylesheet">
@@ -66,7 +67,7 @@
         <section id="countdown" class="count-hero reveal">
             <div class="count-inner container">
                 <div class="flower-wrap" aria-hidden="true">
-                    <img class="flower-gif" src="/thiepcuoi/img/flower6.gif" alt="" decoding="async" />
+                    <img class="flower-gif" id="storyFlower-countdown" src="" data-src="/thiepcuoi/img/flower6.gif" alt="" decoding="async" />
                 </div>
 
                 <div class="script-line">Ngày hạnh phúc</div>
@@ -107,90 +108,85 @@
         <div class="sec-transition" aria-hidden="true"></div>
 
 
-        <!-- Story / About (layout kept) -->
-        <section id="story" class="story-timeline reveal">
+        <section id="story" class="story-alt reveal">
             <div class="container">
                 <div class="flower-wrap" aria-hidden="true">
-                    <img class="flower-gif" src="/thiepcuoi/img/flower6.gif" alt="" decoding="async" />
+                    <img class="flower-gif" id="storyFlower" src="" data-src="/thiepcuoi/img/flower6.gif" alt="" decoding="async" />
                 </div>
                 <div class="sec-head">
                     <span class="script-line">Chuyện chúng mình</span>
-                    <h2 class="section-title" style="text-align:center;margin-top:6px">Từ người lạ thành thương</h2>
-
-                    <ol class="timeline">
-                        <!-- MỐC 1 -->
-                        <li class="tli">
-                            <div class="tldot" aria-hidden="true"></div>
-                            <article class="tlcard">
-                                <time class="tldate">Tháng 12, 2019</time>
-                                <h3>Gặp nhau lần đầu</h3>
-                                <p>Một chiều cuối năm, tụi mình tình cờ quen nhau qua một nhóm bạn chung. Nụ cười đầu
-                                    tiên
-                                    đủ làm ấm một mùa đông dài.</p>
-                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Khoảnh khắc gặp nhau đầu tiên">
-                            </article>
-                        </li>
-
-                        <!-- MỐC 2 -->
-                        <li class="tli">
-                            <div class="tldot" aria-hidden="true"></div>
-                            <article class="tlcard">
-                                <time class="tldate">Tháng 8, 2020</time>
-                                <h3>Lời tỏ tình dễ thương</h3>
-                                <p>Những tin nhắn khuya dài dằng dặc rồi cũng kết lại bằng một lời tỏ tình… và một cái
-                                    gật
-                                    đầu.</p>
-                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Lời tỏ tình">
-                            </article>
-                        </li>
-
-                        <!-- MỐC 3 -->
-                        <li class="tli">
-                            <div class="tldot" aria-hidden="true"></div>
-                            <article class="tlcard">
-                                <time class="tldate">Tháng 5, 2021</time>
-                                <h3>Chuyến đi đầu tiên</h3>
-                                <p>Hai đứa xách balo đi trốn tới một nơi có nắng, gió và rất nhiều tiếng cười. Những tấm
-                                    ảnh
-                                    đầu tiên cũng ra đời từ đó.</p>
-                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Chuyến đi đầu tiên">
-                            </article>
-                        </li>
-
-                        <!-- MỐC 4 -->
-                        <li class="tli">
-                            <div class="tldot" aria-hidden="true"></div>
-                            <article class="tlcard">
-                                <time class="tldate">Tháng 10, 2023</time>
-                                <h3>Về ra mắt</h3>
-                                <p>Những mâm cơm đầm ấm, những câu chuyện thân tình. Tụi mình chính thức xem nhau là
-                                    “nhà”.
-                                </p>
-                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Ra mắt gia đình">
-                            </article>
-                        </li>
-
-                        <!-- MỐC 5 -->
-                        <li class="tli">
-                            <div class="tldot" aria-hidden="true"></div>
-                            <article class="tlcard">
-                                <time class="tldate">Tháng 2, 2025</time>
-                                <h3>Lời cầu hôn</h3>
-                                <p>Một chiếc nhẫn nhỏ, một cái ôm thật chặt. Và tụi mình nói “đồng ý” cho đoạn đường
-                                    phía
-                                    trước.</p>
-                                <img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Cầu hôn">
-                            </article>
-                        </li>
-                    </ol>
+                    <h2 class="story-title">Từ người lạ thành thương</h2>
+                    <div class="story-title-glow"></div>
                 </div>
+                
+                <!-- TAB tiêu đề đè lên ảnh -->
+                <article class="story-row" data-anim="lr">
+                    <figure class="story-photo">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" alt="">
+                    </figure>
+                
+                    <div class="story-panel">
+                        <time class="p-date">Tháng 2, 2025</time>
+                        <h3>Gặp nhau lần đầu</h3>
+                        <p>Giữa tiếng nhạc và ánh đèn, tụi mình chạm mắt rồi cười như đã quen từ lâu. Một ly chúc mừng, vài câu chuyện ngắn… và kể từ hôm đó, tên nhau nằm ở đầu danh bạ.</p>
+                    </div>
+                </article>
+                
+                <article class="story-row is-rev" data-anim="rl">
+                    <div class="story-panel">
+                        <time class="p-date">Tháng 3, 2025</time>
+                        <h3>Lời tỏ tình</h3>
+                        <p>Những cuộc trò chuyện đêm muộn dài hơn, câu “về nhà chưa?” thành thói quen. Một chiều nhiều gió, anh nói “mình hẹn hò nhé?”, em gật đầu. Đơn giản vậy mà tim ấm cả ngày.</p>
+                    </div>
+
+                    <figure class="story-photo">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" alt="">
+                    </figure>
+                </article>
+                
+                <article class="story-row" data-anim="lr">
+                    <figure class="story-photo">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" alt="">
+                    </figure>
+                    <div class="story-panel">
+                        <time class="p-date">Tháng 4, 2025</time>
+                        <h3>Chuyến đi đầu tiên</h3>
+                        <p>Chuyến đi ngắn như cơn gió đầu hạ: lạc vài lần, ăn những món bình thường, chụp những bức ảnh chẳng hoàn hảo nhưng rất vui. Tụi mình hiểu ra: hợp nhau không vì điểm đến, mà vì người đi cùng.</p>
+                    </div>
+                </article>
+
+                <article class="story-row is-rev" data-anim="rl">
+                    <div class="story-panel">
+                        <time class="p-date">Tháng 5, 2025</time>
+                        <h3>Cầu hôn</h3>
+                        <p>Cuối mùa hạ, giữa ánh đèn ấm và vài bản nhạc quen, anh mở chiếc hộp nhỏ, hỏi “làm vợ anh nhé?”. Em gật đầu, mắt ươn ướt. Chiếc nhẫn vừa vặn, còn niềm vui thì tràn ra ngoài bức ảnh. Từ hôm ấy, “anh và em” thành “chúng mình”.</p>
+                    </div>
+
+                    <figure class="story-photo">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" alt="">
+                    </figure>
+                </article>
+
+                <article class="story-row" data-anim="lr">
+                    <figure class="story-photo">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" alt="">
+                    </figure>
+
+                    <div class="story-panel">
+                        <time class="p-date">Tháng 10, 2025</time>
+                        <h3>Đám cưới</h3>
+                        <p>Sau bao ngày mưa nắng, tụi mình chọn “về chung một nhà”. Chiếc nhẫn nhỏ, cái ôm thật chặt và lời hứa dịu dàng: nắm tay nhau đi qua mọi ngày – bình yên cũng là hạnh phúc.</p>
+                    </div>
+                </article>
+
             </div>
+              
         </section>
+          
+
+          
+        <!-- Story / About (layout kept) -->
+        
 
 
         <!-- Events (layout kept, hover added) -->
@@ -303,8 +299,8 @@
                         <div class="qr-wrap">
                             <a href="#" class="open-lightbox" data-src="https://koreamarket.vn/data/tiendo/qr-tam.jpg"
                                 aria-label="Xem QR cô dâu">
-                                <img class="qr" src="https://koreamarket.vn/data/tiendo/qr-tam.jpg"
-                                    alt="QR chuyển khoản cô dâu">
+                                <img class="qr" data-lazy-gif data-src="https://koreamarket.vn/data/tiendo/qr-tam.jpg"
+                                    alt="QR chuyển khoản cô dâu" data-replay="false">
                             </a>
                         </div>
                         <ul class="b-info">
@@ -329,8 +325,8 @@
                         <div class="qr-wrap">
                             <a href="#" class="open-lightbox" data-src="https://koreamarket.vn/data/tiendo/qr-tien.jpg"
                                 aria-label="Xem QR chú rể">
-                                <img class="qr" src="https://koreamarket.vn/data/tiendo/qr-tien.jpg"
-                                    alt="QR chuyển khoản chú rể">
+                                <img class="qr" data-lazy-gif data-src="https://koreamarket.vn/data/tiendo/qr-tien.jpg"
+                                    alt="QR chuyển khoản chú rể" data-replay="false">
                             </a>
                         </div>
                         <ul class="b-info">
@@ -422,6 +418,79 @@
     </div>
 
     <script>
+        // Sử dụng
+        lazyGif('#storyFlower-countdown', { replay:true, threshold:0.6 });               
+        lazyGif('#storyFlower', { replay:true, threshold:0.6 });  // phát lại mỗi lần thấy
+
+        // Lazy load GIF
+        function lazyGif(target, opts = {}) {
+            const el = typeof target === 'string' ? document.querySelector(target) : target;
+            if (!el) return;
+
+            const dataSrc = el.dataset.src;
+            if (!dataSrc) return;
+
+            const replay   = opts.replay ?? (el.dataset.replay === 'true');
+            const threshold = opts.threshold ?? 0.55;
+            const root      = opts.root ?? null;
+            const rootMargin = opts.rootMargin ?? '0px';
+
+            const io = new IntersectionObserver(([entry]) => {
+                if (!entry.isIntersecting) return;
+
+                // Lần đầu: load GIF và đánh dấu loaded
+                if (!el.dataset.loaded) {
+                el.src = dataSrc + '?t=' + Date.now();     // cache-bust để gif chạy từ đầu
+                el.addEventListener('load', () => {
+                    el.classList.add('loaded');
+                    el.dataset.loaded = '1';
+                }, { once: true });
+                if (!replay) io.unobserve(el);             // chỉ phát 1 lần
+                } else if (replay) {
+                // Phát lại khi quay lại vùng nhìn
+                const fresh = dataSrc + '?t=' + Date.now();
+                el.src = '';
+                requestAnimationFrame(() => el.src = fresh);
+                }
+            }, { threshold, root, rootMargin });
+
+            io.observe(el);
+            return io;
+        }
+
+        // Một observer dùng cho tất cả
+        (function initAllLazyGifs(){
+            const items = document.querySelectorAll('[data-lazy-gif]');
+            if (!items.length) return;
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                const img = entry.target;
+                if (!entry.isIntersecting) return;
+
+                const url = img.dataset.src;
+                const replay = img.dataset.replay === 'true';
+
+                if (!img.dataset.loaded) {
+                    img.src = url + '?t=' + Date.now();
+                    img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                    img.dataset.loaded = '1';
+                    }, { once:true });
+                    if (!replay) io.unobserve(img);
+                } else if (replay) {
+                    const fresh = url + '?t=' + Date.now();
+                    img.src = '';
+                    requestAnimationFrame(() => img.src = fresh);
+                }
+                });
+            }, { threshold: 0.55 });
+
+            items.forEach(img => io.observe(img));
+        })();
+
+
+
         // ===== CONFIG =====
         const WEDDING_DATE = new Date('2025-10-01T08:00:00+07:00');
         const MUSIC_SRC = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // đường dẫn bài nhạc của bạn
@@ -615,7 +684,7 @@
         }
 
         // Cuộn mượt đến section với thời gian tùy chỉnh
-        function smoothScrollTo(targetSelector, duration = 1000) {
+        function smoothScrollTo(targetSelector, duration = 500) {
             const target = document.querySelector(targetSelector);
             if (!target) return;
 
@@ -646,7 +715,7 @@
                 const targetId = this.getAttribute('href');
                 if (targetId.length > 1) { // bỏ qua nếu chỉ là '#'
                     e.preventDefault();
-                    smoothScrollTo(targetId, 1200); // 1.2 giây
+                    smoothScrollTo(targetId, 500); // 1.2 giây
                 }
             });
         });
